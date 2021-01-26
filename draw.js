@@ -34,8 +34,8 @@ const makeGrid = () => {
 
 makeGrid();
 
-const fillPixel = (id, id2) => {
-  $(`#${id}-${id2}`).css("background-color", $("#colour-picker").val());
+const fillPixel = (id, id2, colour) => {
+  $(`#${id}-${id2}`).css("background-color", colour);
 };
 
 const erasePixel = (id, id2) => {
@@ -50,14 +50,14 @@ for (let i = 0; i < 32; i++) {
           if (event.type === "mousedown") {
             switch (event.which) {
               case 1:
-                fillPixel(i, j);
+                fillPixel(i, j, $("#colour-picker").val());
                 break;
               case 3:
                 erasePixel(i, j);
             }
           }
           if (mouseDown && mouseButton === 1) {
-            fillPixel(i, j);
+            fillPixel(i, j, $("#colour-picker").val());
           } else if (mouseDown && mouseButton === 3) {
             erasePixel(i, j);
           }
@@ -71,7 +71,7 @@ for (let i = 0; i < 32; i++) {
             for (let i = 0; i < 32; i++) {
               for (let j = 0; j < 32; j++) {
                 if ($(`#${i}-${j}`).css("background-color") === currentColor) {
-                  fillPixel(i, j);
+                  fillPixel(i, j, $("#colour-picker").val());
                 }
               }
             }
@@ -117,4 +117,12 @@ $("#export").on("click", () => {
   $("table").css("border", "1px solid black");
   $("tr").css("border", "1px solid black");
   $("td").css("border","1px solid black");
+})
+
+$("#reset").on("click", () => {
+  for (let i = 0; i < 32; i++) {
+    for (let j = 0; j < 32; j++) {
+      fillPixel(i,j,"white");
+    }
+  }
 })
