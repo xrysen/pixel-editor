@@ -1,0 +1,52 @@
+.colour-picker {
+  border: 1px solid #dcdcdc;
+  -webkit-appearance: none;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.color-picker::-webkit-color-swatch {
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+}
+.color-picker::-webkit-color-swatch-wrapper {
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.column {
+  width: 35%;
+}
+
+body {
+  text-align: center;
+}
+
+table,
+tr,
+td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  margin-left: 50%;
+}
+
+tr {
+  border-spacing: 0;
+  height: 20px;
+}
+
+td {
+  border-spacing: 0;
+  min-width: 25px;
+  margin: 0px;
+  box-sizing: 1px solid #dcdcdc;
+}
