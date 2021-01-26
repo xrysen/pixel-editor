@@ -1,6 +1,9 @@
 let mouseDown = false;
 let mouseButton = 1;
 
+let GRID_WIDTH = 32;
+let GRID_HEIGHT = 32;
+
 $(document)
   .on("mousedown", (event) => {
     switch (event.which) {
@@ -21,12 +24,12 @@ $(document)
   });
 
 const makeGrid = () => {
-  for (let i = 0; i < 32; i++) {
+  for (let i = 0; i < GRID_HEIGHT; i++) {
     $(".canvas").append(`<tr id=tr${i}></tr>`);
   }
 
-  for (let i = 0; i < 32; i++) {
-    for (let j = 0; j < 32; j++) {
+  for (let i = 0; i < GRID_HEIGHT; i++) {
+    for (let j = 0; j < GRID_WIDTH; j++) {
       $(`#tr${i}`).append(`<td id=${i}-${j}></td>`).css("background-color", "white");;
     }
   }
@@ -42,8 +45,8 @@ const erasePixel = (id, id2) => {
   $(`#${id}-${id2}`).css("background-color", "white");
 };
 
-for (let i = 0; i < 32; i++) {
-  for (let j = 0; j < 32; j++) {
+for (let i = 0; i < GRID_HEIGHT; i++) {
+  for (let j = 0; j < GRID_WIDTH; j++) {
     $(`#${i}-${j}`).on("mousedown mouseover", (event) => {
       switch (drawMode) {
         case "draw":
@@ -67,9 +70,9 @@ for (let i = 0; i < 32; i++) {
           mouseDown = false;
           if (event.type === "mousedown") {
             let currentColor = $(`#${i}-${j}`).css("background-color");
-            console.log(currentColor);
-            for (let i = 0; i < 32; i++) {
-              for (let j = 0; j < 32; j++) {
+            
+            for (let i = 0; i < GRID_HEIGHT; i++) {
+              for (let j = 0; j < GRID_WIDTH; j++) {
                 if ($(`#${i}-${j}`).css("background-color") === currentColor) {
                   fillPixel(i, j, $("#colour-picker").val());
                 }
@@ -120,8 +123,8 @@ $("#export").on("click", () => {
 })
 
 $("#reset").on("click", () => {
-  for (let i = 0; i < 32; i++) {
-    for (let j = 0; j < 32; j++) {
+  for (let i = 0; i < GRID_HEIGHT; i++) {
+    for (let j = 0; j < GRID_WIDTH; j++) {
       fillPixel(i,j,"white");
     }
   }
