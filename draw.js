@@ -76,9 +76,14 @@ for (let i = 0; i < 32; i++) {
               }
             }
           }
+          break;
       }
     });
   }
+}
+
+const removeSelected = (current) => {
+  $(current).toggleClass("selected");
 }
 
 let drawMode = "draw";
@@ -88,10 +93,18 @@ const setMode = (type) => {
   console.log("Mode is now: " + drawMode);
 };
 
+$("#draw").toggleClass("selected");
+
 $("#draw").on("click", () => {
   setMode("draw");
+  $("#draw").toggleClass("selected");
+  removeSelected("#fill");
 });
+
+
 
 $("#fill").on("click", () => {
   setMode("fill");
+  $("#fill").toggleClass("selected");
+  removeSelected("#draw");
 });
