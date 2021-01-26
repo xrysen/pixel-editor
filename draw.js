@@ -66,9 +66,11 @@ for (let i = 0; i < 32; i++) {
         case "fill":
           mouseDown = false;
           if (event.type === "mousedown") {
+            let currentColor = $(`#${i}-${j}`).css("background-color");
+            console.log(currentColor);
             for (let i = 0; i < 32; i++) {
               for (let j = 0; j < 32; j++) {
-                if ($(`#${i}-${j}`).css("background-color") === "rgba(0, 0, 0, 0)") {
+                if ($(`#${i}-${j}`).css("background-color") === currentColor) {
                   fillPixel(i, j);
                 }
               }
