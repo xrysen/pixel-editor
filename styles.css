@@ -65,14 +65,16 @@ td {
 
 button {
   margin-top: 5px;
+  color: #5F615B;
 }
 
 .tool-icons {
   font-size: 40px;
   margin-top: 10px;
   margin-bottom: 10px;
+  
 }
 
 .selected {
-  color: red;
+  color: black;
 }
