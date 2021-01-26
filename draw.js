@@ -27,7 +27,7 @@ const makeGrid = () => {
 
   for (let i = 0; i < 32; i++) {
     for (let j = 0; j < 32; j++) {
-      $(`#tr${i}`).append(`<td id=${i}-${j}></td>`);
+      $(`#tr${i}`).append(`<td id=${i}-${j}></td>`).css("background-color", "white");;
     }
   }
 };
@@ -36,29 +36,45 @@ makeGrid();
 
 const fillPixel = (id, id2) => {
   $(`#${id}-${id2}`).css("background-color", $("#colour-picker").val());
-}
+};
 
 const erasePixel = (id, id2) => {
   $(`#${id}-${id2}`).css("background-color", "white");
-}
+};
 
 for (let i = 0; i < 32; i++) {
   for (let j = 0; j < 32; j++) {
     $(`#${i}-${j}`).on("mousedown mouseover", (event) => {
-      if (event.type === "mousedown" && drawMode === "draw") {
-        switch(event.which) {
-          case 1:
+      switch (drawMode) {
+        case "draw":
+          if (event.type === "mousedown") {
+            switch (event.which) {
+              case 1:
+                fillPixel(i, j);
+                break;
+              case 3:
+                erasePixel(i, j);
+            }
+          }
+          if (mouseDown && mouseButton === 1) {
             fillPixel(i, j);
-            break;
-          case 3:
+          } else if (mouseDown && mouseButton === 3) {
             erasePixel(i, j);
-        }
+          }
+          break;
+
+        case "fill":
+          mouseDown = false;
+          if (event.type === "mousedown") {
+            for (let i = 0; i < 32; i++) {
+              for (let j = 0; j < 32; j++) {
+                if ($(`#${i}-${j}`).css("background-color") === "rgba(0, 0, 0, 0)") {
+                  fillPixel(i, j);
+                }
+              }
+            }
+          }
       }
-      if (mouseDown && mouseButton === 1 && drawMode === "draw") {
-        fillPixel(i, j);
-      } else if (mouseDown && mouseButton === 3 && drawMode === "draw") {
-        erasePixel(i, j);
-      } 
     });
   }
 }
@@ -68,7 +84,7 @@ let drawMode = "draw";
 const setMode = (type) => {
   drawMode = type;
   console.log("Mode is now: " + drawMode);
-}
+};
 
 $("#draw").on("click", () => {
   setMode("draw");
