@@ -68,6 +68,10 @@ button {
   color: #5F615B;
 }
 
+button #reset #export {
+  color: "black";
+}
+
 .tool-icons {
   font-size: 40px;
   margin-top: 10px;
