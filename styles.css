@@ -51,3 +51,22 @@ td {
   margin: 0px;
   box-sizing: 1px solid #dcdcdc;
 }
+
+.tools {
+  position: absolute;
+  top: 40px;
+  border: 2px solid black;
+  width: 60px;
+  padding: 10px;
+  border-radius: 10%;
+}
+
+button {
+  margin-top: 5px;
+}
+
+.tool-icons {
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

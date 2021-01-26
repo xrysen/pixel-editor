@@ -45,7 +45,7 @@ const erasePixel = (id, id2) => {
 for (let i = 0; i < 32; i++) {
   for (let j = 0; j < 32; j++) {
     $(`#${i}-${j}`).on("mousedown mouseover", (event) => {
-      if (event.type === "mousedown") {
+      if (event.type === "mousedown" && drawMode === "draw") {
         switch(event.which) {
           case 1:
             fillPixel(i, j);
@@ -54,11 +54,26 @@ for (let i = 0; i < 32; i++) {
             erasePixel(i, j);
         }
       }
-      if (mouseDown && mouseButton === 1) {
+      if (mouseDown && mouseButton === 1 && drawMode === "draw") {
         fillPixel(i, j);
-      } else if (mouseDown && mouseButton === 3) {
+      } else if (mouseDown && mouseButton === 3 && drawMode === "draw") {
         erasePixel(i, j);
       } 
     });
   }
 }
+
+let drawMode = "draw";
+
+const setMode = (type) => {
+  drawMode = type;
+  console.log("Mode is now: " + drawMode);
+}
+
+$("#draw").on("click", () => {
+  setMode("draw");
+});
+
+$("#fill").on("click", () => {
+  setMode("fill");
+});
