@@ -25,7 +25,7 @@ $(document)
 
 const makeGrid = () => {
   for (let i = 0; i < GRID_HEIGHT; i++) {
-    $(".canvas").append(`<tr id=tr${i}></tr>`)
+    $(".canvas").append(`<tr id=tr${i}></tr>`);
   }
 
   for (let i = 0; i < GRID_HEIGHT; i++) {
@@ -51,6 +51,8 @@ const erasePixel = (id, id2) => {
   $(`#${id}-${id2}`).css("background-color", "white");
 };
 
+// Converts the string returned from .css background-colour to an array of values
+
 const getRGBValues = (rgba) => {
   let result = [];
   let str = rgba.replace("rgba(", "");
@@ -62,16 +64,17 @@ const getRGBValues = (rgba) => {
   return result.join("").split(" ");
 };
 
+// Converts rgb numbers to a hex number to use for colour picker
 
 const convertRGBtoHex = (r, g, b) => {
   r = r.toString(16);
   g = g.toString(16);
   b = b.toString(16);
-  
+
   if (r.length === 1) r = "0" + r;
   if (g.length === 1) g = "0" + g;
   if (b.length === 1) b = "0" + b;
-  
+
   return `#${r}${g}${b}`;
 };
 
@@ -115,7 +118,13 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
           mouseDown = false;
           let currentColor = getRGBValues(getPixel(i, j));
           if (event.type === "mousedown") {
-            $("#colour-picker").val(convertRGBtoHex(Number(currentColor[0]), Number(currentColor[1]), Number(currentColor[2])));
+            $("#colour-picker").val(
+              convertRGBtoHex(
+                Number(currentColor[0]),
+                Number(currentColor[1]),
+                Number(currentColor[2])
+              )
+            );
           }
           break;
       }
@@ -175,5 +184,21 @@ $("#reset").on("click", () => {
     for (let j = 0; j < GRID_WIDTH; j++) {
       setPixel(i, j, "white");
     }
+  }
+});
+
+let grid = "on";
+
+$("#toggle-grid").on("click", () => {
+  if (grid === "on") {
+    $("table").css("border", "none");
+    $("tr").css("border", "none");
+    $("td").css("border", "none");
+    grid = "off";
+  } else {
+    $("table").css("border", "1px solid black");
+    $("tr").css("border", "1px solid black");
+    $("td").css("border", "1px solid black");
+    grid = "on";
   }
 });
