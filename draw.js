@@ -25,24 +25,54 @@ $(document)
 
 const makeGrid = () => {
   for (let i = 0; i < GRID_HEIGHT; i++) {
-    $(".canvas").append(`<tr id=tr${i}></tr>`);
+    $(".canvas").append(`<tr id=tr${i}></tr>`)
   }
 
   for (let i = 0; i < GRID_HEIGHT; i++) {
     for (let j = 0; j < GRID_WIDTH; j++) {
-      $(`#tr${i}`).append(`<td id=${i}-${j}></td>`).css("background-color", "white");;
+      $(`#tr${i}`)
+        .append(`<td id=${i}-${j}></td>`)
+        .css("background-color", "white");
     }
   }
 };
 
 makeGrid();
 
-const setPixel = (id, id2, colour) => {
-  $(`#${id}-${id2}`).css("background-color", colour);
+const setPixel = (x, y, colour) => {
+  $(`#${x}-${y}`).css("background-color", colour);
+};
+
+const getPixel = (x, y) => {
+  return $(`#${x}-${y}`).css("background-color");
 };
 
 const erasePixel = (id, id2) => {
   $(`#${id}-${id2}`).css("background-color", "white");
+};
+
+const getRGBValues = (rgba) => {
+  let result = [];
+  let str = rgba.replace("rgba(", "");
+  str = str.replace("rgb(", "");
+  str = str.replace(")", "");
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== ",") result.push(str[i]);
+  }
+  return result.join("").split(" ");
+};
+
+
+const convertRGBtoHex = (r, g, b) => {
+  r = r.toString(16);
+  g = g.toString(16);
+  b = b.toString(16);
+  
+  if (r.length === 1) r = "0" + r;
+  if (g.length === 1) g = "0" + g;
+  if (b.length === 1) b = "0" + b;
+  
+  return `#${r}${g}${b}`;
 };
 
 for (let i = 0; i < GRID_HEIGHT; i++) {
@@ -69,8 +99,8 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
         case "fill":
           mouseDown = false;
           if (event.type === "mousedown") {
-            let currentColor = $(`#${i}-${j}`).css("background-color");
-            
+            let currentColor = getPixel(i, j);
+
             for (let i = 0; i < GRID_HEIGHT; i++) {
               for (let j = 0; j < GRID_WIDTH; j++) {
                 if ($(`#${i}-${j}`).css("background-color") === currentColor) {
@@ -80,6 +110,14 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
             }
           }
           break;
+
+        case "picker":
+          mouseDown = false;
+          let currentColor = getRGBValues(getPixel(i, j));
+          if (event.type === "mousedown") {
+            $("#colour-picker").val(convertRGBtoHex(Number(currentColor[0]), Number(currentColor[1]), Number(currentColor[2])));
+          }
+          break;
       }
     });
   }
@@ -87,7 +125,7 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
 
 const removeSelected = (current) => {
   $(current).toggleClass("selected");
-}
+};
 
 let drawMode = "draw";
 
@@ -96,36 +134,46 @@ const setMode = (type) => {
   console.log("Mode is now: " + drawMode);
 };
 
-$("#draw").toggleClass("selected");
+const removeSelectedFromAll = () => {
+  $("#draw").removeClass("selected");
+  $("#fill").removeClass("selected");
+  $("#picker").removeClass("selected");
+};
+
+$("#draw").addClass("selected");
 
 $("#draw").on("click", () => {
   setMode("draw");
-  $("#draw").toggleClass("selected");
-  removeSelected("#fill");
+  removeSelectedFromAll();
+  $("#draw").addClass("selected");
 });
-
-
 
 $("#fill").on("click", () => {
   setMode("fill");
-  $("#fill").toggleClass("selected");
-  removeSelected("#draw");
+  removeSelectedFromAll();
+  $("#fill").addClass("selected");
+});
+
+$("#picker").on("click", () => {
+  removeSelectedFromAll();
+  setMode("picker");
+  $("#picker").addClass("selected");
 });
 
 $("#export").on("click", () => {
   $("table").css("border", "none");
   $("tr").css("border", "none");
-  $("td").css("border","none");
-  $('.canvas').tableExport({fileName: "image", type: "png"});
+  $("td").css("border", "none");
+  $(".canvas").tableExport({ fileName: "image", type: "png" });
   $("table").css("border", "1px solid black");
   $("tr").css("border", "1px solid black");
-  $("td").css("border","1px solid black");
-})
+  $("td").css("border", "1px solid black");
+});
 
 $("#reset").on("click", () => {
   for (let i = 0; i < GRID_HEIGHT; i++) {
     for (let j = 0; j < GRID_WIDTH; j++) {
-      setPixel(i,j,"white");
+      setPixel(i, j, "white");
     }
   }
-})
+});
