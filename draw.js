@@ -191,9 +191,9 @@ let grid = "on";
 
 $("#toggle-grid").on("click", () => {
   if (grid === "on") {
-    $("table").css("border", "none");
-    $("tr").css("border", "none");
-    $("td").css("border", "none");
+    $("table").css("border", "1px solid transparent");
+    $("tr").css("border", "1px solid transparent");
+    $("td").css("border", "1px solid transparent");
     grid = "off";
   } else {
     $("table").css("border", "1px solid black");
