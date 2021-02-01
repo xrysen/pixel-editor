@@ -124,28 +124,31 @@ const floodFill = (x, y, orgColour, newColour) => {
 const line = (x1, y1, x2, y2) => {
   const dx = Math.abs(x2 - x1);
   const dy = Math.abs(y2 - y1);
-  const sx = (x1 < x2) ? 1: -1;
-  const sy = (y1 < y2) ? 1: -1;
+  const sx = x1 < x2 ? 1 : -1;
+  const sy = y1 < y2 ? 1 : -1;
   let err = dx - dy;
 
-  while(true) {
+  while (true) {
     setPixel(y1, x1, $("#colour-picker").val());
-    if ((x1 === x2) && (y1 === y2)) break;
+    if (x1 === x2 && y1 === y2) break;
     let e2 = 2 * err;
     if (e2 > -dy) {
-      err -= dy; 
+      err -= dy;
       x1 += sx;
-    } 
+    }
     if (e2 < dx) {
       err += dx;
       y1 += sy;
     }
   }
-}
+};
 
-$('#test').on("click", () => {
-  line(0,0,7,8);
-})
+$("#test").on("click", () => {
+  line(0, 0, 7, 8);
+});
+
+let lineChoosingPoints = true;
+let lineStartingPoint = [];
 
 for (let i = 0; i < GRID_HEIGHT; i++) {
   for (let j = 0; j < GRID_WIDTH; j++) {
@@ -198,6 +201,20 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
             );
           }
           break;
+
+        case "line":
+          if (event.type === "mousedown" && lineChoosingPoints) {
+            lineStartingPoint[0] = j;
+            lineStartingPoint[1] = i;
+            setPixel(i, j, $("#colour-picker").val());
+            lineChoosingPoints = false;
+          } else if (event.type === "mousedown" && !lineChoosingPoints) {
+            takeSnapshot();
+            line(lineStartingPoint[0], lineStartingPoint[1], j, i);
+            lineStartingPoint = [];
+            lineChoosingPoints = true;
+          }
+          break;
       }
     });
   }
@@ -218,6 +235,7 @@ const removeSelectedFromAll = () => {
   $("#draw").removeClass("selected");
   $("#fill").removeClass("selected");
   $("#picker").removeClass("selected");
+  $("#line").removeClass("selected");
 };
 
 $("#draw").addClass("selected");
@@ -240,6 +258,12 @@ $("#picker").on("click", () => {
   $("#picker").addClass("selected");
 });
 
+$("#line").on("click", () => {
+  removeSelectedFromAll();
+  setMode("line");
+  $("#line").addClass("selected");
+});
+
 $("#undo").on("click", () => {
   undo();
 });
@@ -259,7 +283,7 @@ $("#reset").on("click", () => {
 });
 
 $("#reset-no").on("click", () => {
-  $("#reset-confirm").css("display","none");
+  $("#reset-confirm").css("display", "none");
 });
 
 $("#reset-yes").on("click", () => {
