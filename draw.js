@@ -125,7 +125,7 @@ const floodFill = (x, y, orgColour, newColour) => {
   floodFill(x + 1, y + 1, orgColour, newColour);
 };
 
-const line = (x1, y1, x2, y2) => {
+const line = (x1, y1, x2, y2, colour) => {
   const dx = Math.abs(x2 - x1);
   const dy = Math.abs(y2 - y1);
   const sx = x1 < x2 ? 1 : -1;
@@ -133,7 +133,7 @@ const line = (x1, y1, x2, y2) => {
   let err = dx - dy;
 
   while (true) {
-    setPixel(y1, x1, $("#colour-picker").val());
+    setPixel(y1, x1, colour);
     if (x1 === x2 && y1 === y2) break;
     let e2 = 2 * err;
     if (e2 > -dy) {
@@ -174,13 +174,6 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
           if (event.type === "mousedown") {
             takeSnapshot();
             let currentColor = getPixel(i, j);
-            // for (let i = 0; i < GRID_HEIGHT; i++) {
-            //   for (let j = 0; j < GRID_WIDTH; j++) {
-            //     if ($(`#${i}-${j}`).css("background-color") === currentColor) {
-            //       setPixel(i, j, $("#colour-picker").val());
-            //     }
-            //   }
-            // }
             floodFill(i, j, currentColor, $("#colour-picker").val());
           }
           break;
@@ -207,10 +200,14 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
             setPixel(i, j, $("#colour-picker").val());
             lineChoosingPoints = false;
           } else if (event.type === "mousedown" && !lineChoosingPoints) {
-            takeSnapshot();
-            line(lineStartingPoint[0], lineStartingPoint[1], j, i);
+            line(lineStartingPoint[0], lineStartingPoint[1], j, i, $("#colour-picker").val());
             lineStartingPoint = [];
             lineChoosingPoints = true;
+          } else if (event.type === "mouseover" && !lineChoosingPoints) {
+            for (const block of snapShot) {
+              setPixel(block.y, block.x, block.colour);
+            }
+            line(lineStartingPoint[0], lineStartingPoint[1], j, i, $("#colour-picker").val());
           }
           break;
       }
