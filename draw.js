@@ -78,6 +78,21 @@ const convertRGBtoHex = (r, g, b) => {
   return `#${r}${g}${b}`;
 };
 
+const floodFill = (x, y, orgColour, newColour) => {
+  if ((x < 0) || (x > GRID_WIDTH - 1) || (y < 0) || (y > GRID_HEIGHT - 1)) return;
+  if (getPixel(x, y) !== orgColour) return;
+
+  setPixel(x, y, newColour);
+  floodFill(x - 1, y - 1, orgColour, newColour);
+  floodFill(x - 1, y, orgColour, newColour);
+  floodFill(x - 1, y + 1, orgColour, newColour);
+  floodFill(x, y - 1, orgColour, newColour);
+  floodFill(x, y + 1, orgColour, newColour);
+  floodFill(x + 1, y - 1, orgColour, newColour);
+  floodFill(x + 1, y, orgColour, newColour);
+  floodFill(x + 1, y + 1, orgColour, newColour);
+}
+
 for (let i = 0; i < GRID_HEIGHT; i++) {
   for (let j = 0; j < GRID_WIDTH; j++) {
     $(`#${i}-${j}`).on("mousedown mouseover", (event) => {
@@ -103,14 +118,15 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
           mouseDown = false;
           if (event.type === "mousedown") {
             let currentColor = getPixel(i, j);
-
-            for (let i = 0; i < GRID_HEIGHT; i++) {
-              for (let j = 0; j < GRID_WIDTH; j++) {
-                if ($(`#${i}-${j}`).css("background-color") === currentColor) {
-                  setPixel(i, j, $("#colour-picker").val());
-                }
-              }
-            }
+            console.log(i);
+            // for (let i = 0; i < GRID_HEIGHT; i++) {
+            //   for (let j = 0; j < GRID_WIDTH; j++) {
+            //     if ($(`#${i}-${j}`).css("background-color") === currentColor) {
+            //       setPixel(i, j, $("#colour-picker").val());
+            //     }
+            //   }
+            // }
+            floodFill(i, j, currentColor, $("#colour-picker").val());
           }
           break;
 
