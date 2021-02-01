@@ -4,6 +4,8 @@ let mouseButton = 1;
 let GRID_WIDTH = 32;
 let GRID_HEIGHT = 32;
 
+let snapShot = [];
+
 $(document)
   .on("mousedown", (event) => {
     switch (event.which) {
@@ -38,6 +40,22 @@ const makeGrid = () => {
 };
 
 makeGrid();
+
+const takeSnapshot = () => {
+  snapShot = [];
+  for (let y = 0; y < GRID_HEIGHT; y++) {
+    for (let x = 0; x < GRID_WIDTH; x++) {
+      snapShot.push({ x: x, y: y, colour: $(`#${y}-${x}`).css("background-color")});
+    }
+  }
+}
+
+const undo = () => {
+  for (const block of snapShot) {
+    setPixel(block.y, block.x, block.colour);
+  }
+  snapShot = [];
+}
 
 const setPixel = (x, y, colour) => {
   $(`#${x}-${y}`).css("background-color", colour);
@@ -79,7 +97,7 @@ const convertRGBtoHex = (r, g, b) => {
 };
 
 const floodFill = (x, y, orgColour, newColour) => {
-  if ((x < 0) || (x > GRID_WIDTH - 1) || (y < 0) || (y > GRID_HEIGHT - 1)) return;
+  if (x < 0 || x > GRID_WIDTH - 1 || y < 0 || y > GRID_HEIGHT - 1) return;
   if (getPixel(x, y) !== orgColour) return;
 
   setPixel(x, y, newColour);
@@ -91,7 +109,7 @@ const floodFill = (x, y, orgColour, newColour) => {
   floodFill(x + 1, y - 1, orgColour, newColour);
   floodFill(x + 1, y, orgColour, newColour);
   floodFill(x + 1, y + 1, orgColour, newColour);
-}
+};
 
 for (let i = 0; i < GRID_HEIGHT; i++) {
   for (let j = 0; j < GRID_WIDTH; j++) {
@@ -99,6 +117,8 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
       switch (drawMode) {
         case "draw":
           if (event.type === "mousedown") {
+            takeSnapshot();
+            console.log(snapShot);
             switch (event.which) {
               case 1:
                 setPixel(i, j, $("#colour-picker").val());
@@ -118,7 +138,6 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
           mouseDown = false;
           if (event.type === "mousedown") {
             let currentColor = getPixel(i, j);
-            console.log(i);
             // for (let i = 0; i < GRID_HEIGHT; i++) {
             //   for (let j = 0; j < GRID_WIDTH; j++) {
             //     if ($(`#${i}-${j}`).css("background-color") === currentColor) {
@@ -183,6 +202,10 @@ $("#picker").on("click", () => {
   removeSelectedFromAll();
   setMode("picker");
   $("#picker").addClass("selected");
+});
+
+$("#undo").on("click", () => {
+  undo();
 });
 
 $("#export").on("click", () => {
