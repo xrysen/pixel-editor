@@ -25,6 +25,12 @@ $(document)
     mouseButton = 0;
   });
 
+  $(document).keypress("z", (e) => {
+    if (e.ctrlKey) {
+      undo();
+    }
+  })
+
 const makeGrid = () => {
   for (let i = 0; i < GRID_HEIGHT; i++) {
     $(".canvas").append(`<tr id=tr${i}></tr>`);
@@ -118,7 +124,6 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
         case "draw":
           if (event.type === "mousedown") {
             takeSnapshot();
-            console.log(snapShot);
             switch (event.which) {
               case 1:
                 setPixel(i, j, $("#colour-picker").val());
@@ -137,6 +142,7 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
         case "fill":
           mouseDown = false;
           if (event.type === "mousedown") {
+            takeSnapshot();
             let currentColor = getPixel(i, j);
             // for (let i = 0; i < GRID_HEIGHT; i++) {
             //   for (let j = 0; j < GRID_WIDTH; j++) {
