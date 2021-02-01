@@ -17,24 +17,38 @@
     <input id="colour-picker" type="color" class="colour-picker" />
 
     <div class="column">
-        <table class="canvas"></table>
+      <table class="canvas"></table>
     </div>
 
     <div class="tools">
-      <button id="draw"><i class="fas fa-pencil-alt tool-icons"></i></button>
-      <button id="fill"><i class="fas fa-fill tool-icons"></i></button>
-      <button id="picker"><i class="fas fa-eye-dropper tool-icons"></i></button>
+      <button id="draw" class = "tools-button"><i class="fas fa-pencil-alt tool-icons"></i></button>
+      <button id="fill" class = "tools-button"><i class="fas fa-fill tool-icons"></i></button>
+      <button id="picker" class = "tools-button"><i class="fas fa-eye-dropper tool-icons"></i></button>
     </div>
 
-    <div>
+    <div class = "bottom-buttons">
       <button id="toggle-grid">Toggle Grid</button>
       <button id="undo">Undo</button>
       <button id="reset">Reset</button>
       <button id="export">Export as PNG</button>
     </div>
+
+    <div id="reset-confirm">
+      <div id="reset-confirm-content">
+        <p>Are you sure you want to reset?</p>
+        <button id = "reset-yes" class = "btn btn-primary">Yes</button><button id = "reset-no" class = "btn btn-danger">No</button>
+      </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script type="text/javascript" src="libs/FileSaver/FileSaver.min.js"></script>
-    <script type="text/javascript" src="libs/html2canvas/html2canvas.min.js"></script>
+    <script
+      type="text/javascript"
+      src="libs/FileSaver/FileSaver.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="libs/html2canvas/html2canvas.min.js"
+    ></script>
     <script type="text/javascript" src="tableExport.min.js"></script>
     <script src="draw.js"></script>
   </body>

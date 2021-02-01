@@ -25,11 +25,11 @@ $(document)
     mouseButton = 0;
   });
 
-  $(document).keypress("z", (e) => {
-    if (e.ctrlKey) {
-      undo();
-    }
-  })
+$(document).keypress("z", (e) => {
+  if (e.ctrlKey) {
+    undo();
+  }
+});
 
 const makeGrid = () => {
   for (let i = 0; i < GRID_HEIGHT; i++) {
@@ -51,17 +51,21 @@ const takeSnapshot = () => {
   snapShot = [];
   for (let y = 0; y < GRID_HEIGHT; y++) {
     for (let x = 0; x < GRID_WIDTH; x++) {
-      snapShot.push({ x: x, y: y, colour: $(`#${y}-${x}`).css("background-color")});
+      snapShot.push({
+        x: x,
+        y: y,
+        colour: $(`#${y}-${x}`).css("background-color"),
+      });
     }
   }
-}
+};
 
 const undo = () => {
   for (const block of snapShot) {
     setPixel(block.y, block.x, block.colour);
   }
   snapShot = [];
-}
+};
 
 const setPixel = (x, y, colour) => {
   $(`#${x}-${y}`).css("background-color", colour);
@@ -225,6 +229,15 @@ $("#export").on("click", () => {
 });
 
 $("#reset").on("click", () => {
+  $("#reset-confirm").css("display", "block");
+});
+
+$("#reset-no").on("click", () => {
+  $("#reset-confirm").css("display","none");
+});
+
+$("#reset-yes").on("click", () => {
+  $("#reset-confirm").css("display", "none");
   for (let i = 0; i < GRID_HEIGHT; i++) {
     for (let j = 0; j < GRID_WIDTH; j++) {
       setPixel(i, j, "white");
