@@ -5,6 +5,8 @@ let GRID_WIDTH = 32;
 let GRID_HEIGHT = 32;
 
 let snapShot = [];
+let lineChoosingPoints = true;
+let lineStartingPoint = [];
 
 $(document)
   .on("mousedown", (event) => {
@@ -65,6 +67,8 @@ const undo = () => {
     setPixel(block.y, block.x, block.colour);
   }
   snapShot = [];
+  lineChoosingPoints = true;
+  lineStartingPoint = [];
 };
 
 const setPixel = (x, y, colour) => {
@@ -143,13 +147,6 @@ const line = (x1, y1, x2, y2) => {
   }
 };
 
-$("#test").on("click", () => {
-  line(0, 0, 7, 8);
-});
-
-let lineChoosingPoints = true;
-let lineStartingPoint = [];
-
 for (let i = 0; i < GRID_HEIGHT; i++) {
   for (let j = 0; j < GRID_WIDTH; j++) {
     $(`#${i}-${j}`).on("mousedown mouseover", (event) => {
@@ -204,6 +201,7 @@ for (let i = 0; i < GRID_HEIGHT; i++) {
 
         case "line":
           if (event.type === "mousedown" && lineChoosingPoints) {
+            takeSnapshot();
             lineStartingPoint[0] = j;
             lineStartingPoint[1] = i;
             setPixel(i, j, $("#colour-picker").val());
