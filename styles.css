@@ -53,6 +53,10 @@ td {
   margin: 0px;
   box-sizing: 1px solid #dcdcdc;
 }
+.canvas {
+  margin: auto;
+}
+
 
 .tools {
   position: absolute;
@@ -124,16 +128,27 @@ button #reset #export {
   margin-right: 100px;
 }
 
-#pallet {
+#palette {
+  display: flex;
+  flex-direction: row;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 10px;
   background-color:#F9C0C6;
-  width: 950px;
+  width: 1000px;
   height: 80px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+
 }
 
-.colour-selection-0 {
-  width: 20px;
-  height: 20px;
-  background-color: black;
+.colour-selection {
+  position: relative;
+  left: 38px;
+  top: 15px;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+  border-radius: 50%;
 }
