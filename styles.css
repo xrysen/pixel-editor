@@ -22,12 +22,26 @@
 }
 
 .column {
+  display: flex;
+  flex-direction: row;
   margin: auto;
-  width: 50%;
+  width: 100%;
+}
+
+.toolbar {
+  position: relative;
+  right: 205px;
+  top: 20px;
+  background-color: #F9C0C6;
+  width: 300px;
+  height: 760px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
 }
 
 body {
   text-align: center;
+  background-color: #F1EFD8;
 }
 
 
@@ -40,6 +54,8 @@ td {
 
 table {
   border-collapse: collapse;
+  position:relative;
+  left: 140px;
 }
 
 tr {
