@@ -146,8 +146,8 @@ $(() => {
           case "circle":
             if (event.type === "mousedown" && lineChoosingPoints) {
               mouseY = event.clientY;
-              console.log(mouseY);
               takeSnapshot();
+              setPixel(i, j, $("#colour-picker").val());
               lineStartingPoint[0] = j;
               lineStartingPoint[1] = i;
               lineChoosingPoints = false;
@@ -169,8 +169,7 @@ $(() => {
               if (event.clientY > mouseY) {
                 circleRadius += 1;
                 mouseY = event.clientY;
-              }
-              else {
+              } else {
                 circleRadius -= 1;
                 mouseY = event.clientY;
               }
