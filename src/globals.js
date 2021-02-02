@@ -4,6 +4,8 @@ let mouseButton = 1;
 let GRID_WIDTH = 32;
 let GRID_HEIGHT = 32;
 
+let selectedColour = "#DC2F31";
+
 let snapShot = [];
 let lineChoosingPoints = true;
 let lineStartingPoint = [];

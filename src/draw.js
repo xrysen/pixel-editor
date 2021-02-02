@@ -45,14 +45,14 @@ $(() => {
               takeSnapshot();
               switch (event.which) {
                 case 1:
-                  setPixel(i, j, $("#colour-picker").val());
+                  setPixel(i, j, selectedColour);
                   break;
                 case 3:
                   erasePixel(i, j);
               }
             }
             if (mouseDown && mouseButton === 1) {
-              setPixel(i, j, $("#colour-picker").val());
+              setPixel(i, j, selectedColour);
             } else if (mouseDown && mouseButton === 3) {
               erasePixel(i, j);
             }
@@ -63,7 +63,7 @@ $(() => {
             if (event.type === "mousedown") {
               takeSnapshot();
               let currentColor = getPixel(i, j);
-              floodFill(i, j, currentColor, $("#colour-picker").val());
+              floodFill(i, j, currentColor, selectedColour);
             }
             break;
 
@@ -71,13 +71,12 @@ $(() => {
             mouseDown = false;
             let currentColor = getRGBValues(getPixel(i, j));
             if (event.type === "mousedown") {
-              $("#colour-picker").val(
+              selectedColour = 
                 convertRGBtoHex(
                   Number(currentColor[0]),
                   Number(currentColor[1]),
                   Number(currentColor[2])
-                )
-              );
+                );
             }
             break;
 
@@ -86,7 +85,7 @@ $(() => {
               takeSnapshot();
               lineStartingPoint[0] = j;
               lineStartingPoint[1] = i;
-              setPixel(i, j, $("#colour-picker").val());
+              setPixel(i, j, selectedColour);
               lineChoosingPoints = false;
             } else if (event.type === "mousedown" && !lineChoosingPoints) {
               line(
@@ -94,7 +93,7 @@ $(() => {
                 lineStartingPoint[1],
                 j,
                 i,
-                $("#colour-picker").val()
+                selectedColour
               );
               lineStartingPoint = [];
               lineChoosingPoints = true;
@@ -107,7 +106,7 @@ $(() => {
                 lineStartingPoint[1],
                 j,
                 i,
-                $("#colour-picker").val()
+                selectedColour
               );
             }
             break;
@@ -117,7 +116,7 @@ $(() => {
               takeSnapshot();
               lineStartingPoint[0] = j;
               lineStartingPoint[1] = i;
-              setPixel(i, j, $("#colour-picker").val());
+              setPixel(i, j, selectedColour);
               lineChoosingPoints = false;
             } else if (event.type === "mousedown" && !lineChoosingPoints) {
               drawSquareOutline(
@@ -125,7 +124,7 @@ $(() => {
                 lineStartingPoint[1],
                 j,
                 i,
-                $("#colour-picker").val()
+                selectedColour
               );
               lineStartingPoint = [];
               lineChoosingPoints = true;
@@ -138,7 +137,7 @@ $(() => {
                 lineStartingPoint[1],
                 j,
                 i,
-                $("#colour-picker").val()
+                selectedColour
               );
             }
             break;
@@ -147,7 +146,7 @@ $(() => {
             if (event.type === "mousedown" && lineChoosingPoints) {
               mouseY = event.clientY;
               takeSnapshot();
-              setPixel(i, j, $("#colour-picker").val());
+              setPixel(i, j, selectedColour);
               lineStartingPoint[0] = j;
               lineStartingPoint[1] = i;
               lineChoosingPoints = false;
@@ -156,7 +155,7 @@ $(() => {
                 lineStartingPoint[0],
                 lineStartingPoint[1],
                 circleRadius,
-                $("#colour-picker").val()
+                selectedColour
               );
               lineStartingPoint = [];
               lineChoosingPoints = true;
@@ -178,7 +177,7 @@ $(() => {
                 lineStartingPoint[0],
                 lineStartingPoint[1],
                 circleRadius,
-                $("#colour-picker").val()
+                selectedColour
               );
             }
             break;
