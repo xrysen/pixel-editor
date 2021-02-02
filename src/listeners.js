@@ -39,6 +39,7 @@ const removeSelectedFromAll = () => {
   $("#fill").removeClass("selected");
   $("#picker").removeClass("selected");
   $("#line").removeClass("selected");
+  $("#square").removeClass("selected");
 };
 
 $("#draw").addClass("selected");
@@ -66,6 +67,12 @@ $("#line").on("click", () => {
   setMode("line");
   $("#line").addClass("selected");
 });
+
+$("#square").on("click", () => {
+  removeSelectedFromAll();
+  setMode("square");
+  $("#square").addClass("selected");
+})
 
 $("#undo").on("click", () => {
   undo();
@@ -112,3 +119,6 @@ $("#toggle-grid").on("click", () => {
   }
 });
 
+$("#test").on("click", () => {
+  drawSquareOutline(0, 0, 5, 5, $("#colour-picker").val());
+})

@@ -101,6 +101,25 @@ $(() => {
               line(lineStartingPoint[0], lineStartingPoint[1], j, i, $("#colour-picker").val());
             }
             break;
+
+          case "square":
+            if (event.type === "mousedown" && lineChoosingPoints) {
+              takeSnapshot();
+              lineStartingPoint[0] = j;
+              lineStartingPoint[1] = i;
+              setPixel(i, j, $("#colour-picker").val());
+              lineChoosingPoints = false;
+            } else if (event.type === "mousedown" && !lineChoosingPoints) {
+              drawSquareOutline(lineStartingPoint[0], lineStartingPoint[1], j, i, $("#colour-picker").val());
+              lineStartingPoint = [];
+              lineChoosingPoints = true;
+            } else if (event.type === "mouseover" && !lineChoosingPoints) {
+              for (const block of snapShot) {
+                setPixel(block.y, block.x, block.colour);
+              }
+              drawSquareOutline(lineStartingPoint[0], lineStartingPoint[1], j, i, $("#colour-picker").val());
+            }
+            break;
         }
       });
     }

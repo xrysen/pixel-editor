@@ -73,3 +73,10 @@ const line = (x1, y1, x2, y2, colour) => {
     }
   }
 };
+
+const drawSquareOutline = (x1, y1, x2, y2, colour) => {
+  line(x1, y1, x2, y1, colour); // Right
+  line(x2, y1, x2, y2, colour); // Down
+  line(x2, y2, x1, y2, colour); // Left
+  line(x1, y2, x1, y1, colour); // Up
+}
