@@ -79,4 +79,30 @@ const drawSquareOutline = (x1, y1, x2, y2, colour) => {
   line(x2, y1, x2, y2, colour); // Down
   line(x2, y2, x1, y2, colour); // Left
   line(x1, y2, x1, y1, colour); // Up
-}
+};
+
+const drawCircleOutline = (xCentre, yCentre, radius, colour) => {
+  let x = radius;
+  let y = 0;
+  let radiusError = 1 - x;
+
+  while (x >= y) {
+    setPixel(y + yCentre, x +xCentre, colour);
+    setPixel(x + yCentre, y + xCentre, colour);
+    setPixel(y + yCentre, -x + xCentre, colour);
+    setPixel(x + yCentre, -y + xCentre, colour);
+    setPixel(-y + yCentre, -x + xCentre, colour);
+    setPixel(-x + yCentre, -y + xCentre, colour);
+    setPixel(-y + yCentre, x + xCentre, colour);
+    setPixel(-x + yCentre, y + xCentre, colour);
+    y++;
+
+    if (radiusError < 0) {
+      radiusError += 2 * y + 1;
+    } else {
+      x--;
+      radiusError += 2 * (y - x + 1);
+    }
+    
+  }
+};

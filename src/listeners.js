@@ -120,5 +120,5 @@ $("#toggle-grid").on("click", () => {
 });
 
 $("#test").on("click", () => {
-  drawSquareOutline(0, 0, 5, 5, $("#colour-picker").val());
+  drawCircleOutline(16, 16, 12, $("#colour-picker").val());
 })
