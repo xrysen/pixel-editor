@@ -145,6 +145,8 @@ $(() => {
 
           case "circle":
             if (event.type === "mousedown" && lineChoosingPoints) {
+              mouseY = event.clientY;
+              console.log(mouseY);
               takeSnapshot();
               lineStartingPoint[0] = j;
               lineStartingPoint[1] = i;
@@ -163,7 +165,15 @@ $(() => {
               for (const block of snapShot) {
                 setPixel(block.y, block.x, block.colour);
               }
-              circleRadius += 1;
+
+              if (event.clientY > mouseY) {
+                circleRadius += 1;
+                mouseY = event.clientY;
+              }
+              else {
+                circleRadius -= 1;
+                mouseY = event.clientY;
+              }
 
               drawCircleOutline(
                 lineStartingPoint[0],

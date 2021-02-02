@@ -9,6 +9,7 @@ let lineChoosingPoints = true;
 let lineStartingPoint = [];
 
 let circleRadius = 0;
+let mouseY = 0;
 
 let drawMode = "draw";
 
