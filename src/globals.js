@@ -7,3 +7,7 @@ let GRID_HEIGHT = 32;
 let snapShot = [];
 let lineChoosingPoints = true;
 let lineStartingPoint = [];
+
+let drawMode = "draw";
+
+let grid = "on";

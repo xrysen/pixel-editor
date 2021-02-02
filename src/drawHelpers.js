@@ -10,6 +10,8 @@ const erasePixel = (id, id2) => {
   $(`#${id}-${id2}`).css("background-color", "white");
 };
 
+// Converts the string returned from .css background-colour to an array of values
+
 const getRGBValues = (rgba) => {
   let result = [];
   let str = rgba.replace("rgba(", "");
