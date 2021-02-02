@@ -32,51 +32,51 @@ const setMode = (type) => {
   console.log("Mode is now: " + drawMode);
 };
 
-const removeSelectedFromAll = () => {
-  $("#draw").removeClass("selected");
-  $("#fill").removeClass("selected");
-  $("#picker").removeClass("selected");
-  $("#line").removeClass("selected");
-  $("#square").removeClass("selected");
-  $("#circle").removeClass("selected");
+const addUnselectedToAll = () => {
+  $("#draw").addClass("unselected");
+  $("#fill").addClass("unselected");
+  $("#picker").addClass("unselected");
+  $("#line").addClass("unselected");
+  $("#square").addClass("unselected");
+  $("#circle").addClass("unselected");
 };
 
 $("#draw").addClass("selected");
 
 $("#draw").on("click", () => {
   setMode("draw");
-  removeSelectedFromAll();
-  $("#draw").addClass("selected");
+  addUnselectedToAll();
+  $("#draw").removeClass("unselected");
 });
 
 $("#fill").on("click", () => {
   setMode("fill");
-  removeSelectedFromAll();
-  $("#fill").addClass("selected");
+  addUnselectedToAll();
+  $("#fill").removeClass("unselected");
 });
 
 $("#picker").on("click", () => {
-  removeSelectedFromAll();
+  addUnselectedToAll();
   setMode("picker");
-  $("#picker").addClass("selected");
+  $("#picker").removeClass("unselected");
 });
 
 $("#line").on("click", () => {
-  removeSelectedFromAll();
+  addUnselectedToAll();
   setMode("line");
-  $("#line").addClass("selected");
+  $("#line").removeClass("unselected");
 });
 
 $("#square").on("click", () => {
-  removeSelectedFromAll();
+  addUnselectedToAll();
   setMode("square");
-  $("#square").addClass("selected");
+  $("#square").removeClass("unselected");
 });
 
 $("#circle").on("click", () => {
-  removeSelectedFromAll();
+  addUnselectedToAll();
   setMode("circle");
-  $("#circle").addClass("selected");
+  $("#circle").removeClass("unselected");
 });
 
 $("#undo").on("click", () => {
