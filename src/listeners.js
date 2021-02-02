@@ -27,8 +27,6 @@ const removeSelected = (current) => {
   $(current).toggleClass("selected");
 };
 
-
-
 const setMode = (type) => {
   drawMode = type;
   console.log("Mode is now: " + drawMode);
@@ -40,6 +38,7 @@ const removeSelectedFromAll = () => {
   $("#picker").removeClass("selected");
   $("#line").removeClass("selected");
   $("#square").removeClass("selected");
+  $("#circle").removeClass("selected");
 };
 
 $("#draw").addClass("selected");
@@ -72,7 +71,13 @@ $("#square").on("click", () => {
   removeSelectedFromAll();
   setMode("square");
   $("#square").addClass("selected");
-})
+});
+
+$("#circle").on("click", () => {
+  removeSelectedFromAll();
+  setMode("circle");
+  $("#circle").addClass("selected");
+});
 
 $("#undo").on("click", () => {
   undo();
@@ -121,4 +126,4 @@ $("#toggle-grid").on("click", () => {
 
 $("#test").on("click", () => {
   drawCircleOutline(16, 16, 12, $("#colour-picker").val());
-})
+});
