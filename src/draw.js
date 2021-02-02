@@ -12,7 +12,6 @@ const makeGrid = () => {
   }
 };
 
-
 const takeSnapshot = () => {
   snapShot = [];
   for (let y = 0; y < GRID_HEIGHT; y++) {
@@ -36,11 +35,10 @@ const undo = () => {
 };
 
 $(() => {
-  
   makeGrid();
   for (let i = 0; i < GRID_HEIGHT; i++) {
     for (let j = 0; j < GRID_WIDTH; j++) {
-      $(`#${i}-${j}`).on("mousedown mouseover", (event) => {
+      $(`#${i}-${j}`).on("mousedown mouseover mousemove", (event) => {
         switch (drawMode) {
           case "draw":
             if (event.type === "mousedown") {
@@ -59,7 +57,7 @@ $(() => {
               erasePixel(i, j);
             }
             break;
-  
+
           case "fill":
             mouseDown = false;
             if (event.type === "mousedown") {
@@ -68,7 +66,7 @@ $(() => {
               floodFill(i, j, currentColor, $("#colour-picker").val());
             }
             break;
-  
+
           case "picker":
             mouseDown = false;
             let currentColor = getRGBValues(getPixel(i, j));
@@ -82,7 +80,7 @@ $(() => {
               );
             }
             break;
-  
+
           case "line":
             if (event.type === "mousedown" && lineChoosingPoints) {
               takeSnapshot();
@@ -91,14 +89,26 @@ $(() => {
               setPixel(i, j, $("#colour-picker").val());
               lineChoosingPoints = false;
             } else if (event.type === "mousedown" && !lineChoosingPoints) {
-              line(lineStartingPoint[0], lineStartingPoint[1], j, i, $("#colour-picker").val());
+              line(
+                lineStartingPoint[0],
+                lineStartingPoint[1],
+                j,
+                i,
+                $("#colour-picker").val()
+              );
               lineStartingPoint = [];
               lineChoosingPoints = true;
             } else if (event.type === "mouseover" && !lineChoosingPoints) {
               for (const block of snapShot) {
                 setPixel(block.y, block.x, block.colour);
               }
-              line(lineStartingPoint[0], lineStartingPoint[1], j, i, $("#colour-picker").val());
+              line(
+                lineStartingPoint[0],
+                lineStartingPoint[1],
+                j,
+                i,
+                $("#colour-picker").val()
+              );
             }
             break;
 
@@ -110,21 +120,61 @@ $(() => {
               setPixel(i, j, $("#colour-picker").val());
               lineChoosingPoints = false;
             } else if (event.type === "mousedown" && !lineChoosingPoints) {
-              drawSquareOutline(lineStartingPoint[0], lineStartingPoint[1], j, i, $("#colour-picker").val());
+              drawSquareOutline(
+                lineStartingPoint[0],
+                lineStartingPoint[1],
+                j,
+                i,
+                $("#colour-picker").val()
+              );
               lineStartingPoint = [];
               lineChoosingPoints = true;
             } else if (event.type === "mouseover" && !lineChoosingPoints) {
               for (const block of snapShot) {
                 setPixel(block.y, block.x, block.colour);
               }
-              drawSquareOutline(lineStartingPoint[0], lineStartingPoint[1], j, i, $("#colour-picker").val());
+              drawSquareOutline(
+                lineStartingPoint[0],
+                lineStartingPoint[1],
+                j,
+                i,
+                $("#colour-picker").val()
+              );
+            }
+            break;
+
+          case "circle":
+            if (event.type === "mousedown" && lineChoosingPoints) {
+              takeSnapshot();
+              lineStartingPoint[0] = j;
+              lineStartingPoint[1] = i;
+              lineChoosingPoints = false;
+            } else if (event.type === "mousedown" && !lineChoosingPoints) {
+              drawCircleOutline(
+                lineStartingPoint[0],
+                lineStartingPoint[1],
+                circleRadius,
+                $("#colour-picker").val()
+              );
+              lineStartingPoint = [];
+              lineChoosingPoints = true;
+              circleRadius = 0;
+            } else if (event.type === "mouseover" && !lineChoosingPoints) {
+              for (const block of snapShot) {
+                setPixel(block.y, block.x, block.colour);
+              }
+              circleRadius += 1;
+
+              drawCircleOutline(
+                lineStartingPoint[0],
+                lineStartingPoint[1],
+                circleRadius,
+                $("#colour-picker").val()
+              );
             }
             break;
         }
       });
     }
   }
-})
-
-
-
+});
