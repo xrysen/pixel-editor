@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pixel Editor</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="src/styles/styles.css" />
+    <link rel="stylesheet" href="src/styles/tools.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
@@ -37,15 +38,6 @@
       </div>
     </div>
 
-    <!-- <div class="tools">
-      <button title = "Draw" id="draw" class = "tools-button"><i class="fas fa-pencil-alt tool-icons"></i></button>
-      <button title = "Flood Fill" id="fill" class = "tools-button"><i class="fas fa-fill tool-icons"></i></button>
-      <button title = "Colour Picker" id="picker" class = "tools-button"><i class="fas fa-eye-dropper tool-icons"></i></button>
-      <button title = "Line Tool" id = "line" class = "tools-button"><i class="fas fa-slash" style = "font-size: 30px; height: 40px; margin-top: 15px"></i></button>
-      <button title = "Square Tool" id = "square" class = "tools-button"><i class="far fa-square tool-icons"></i></button>
-      <button title = "Circle Tool" id = "circle" class = "tools-button"><i class="far fa-circle tool-icons"></i></button>
-    </div> -->
-
     <div class = "bottom-buttons">
       <button id="toggle-grid">Toggle Grid</button>
       <button id="undo">Undo</button>
@@ -71,10 +63,10 @@
       src="libs/html2canvas/html2canvas.min.js"
     ></script>
     <script type="text/javascript" src="tableExport.min.js"></script>
-    <script src="src/globals.js"></script>
-    <script src="src/drawHelpers.js"></script>
-    <script src="src/palette.js"></script>
-    <script src="src/listeners.js"></script>
-    <script src="src/draw.js"></script>
+    <script src="src/js/globals.js"></script>
+    <script src="src/js/drawHelpers.js"></script>
+    <script src="src/js/palette.js"></script>
+    <script src="src/js/listeners.js"></script>
+    <script src="src/js/draw.js"></script>
   </body>
 </html>

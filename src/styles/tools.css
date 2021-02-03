@@ -1,0 +1,26 @@
+.toolbar {
+  
+  margin-top: 20px;
+  background-color: #F9C0C6;
+  width: 300px;
+  height: 760px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.toolbar-icon {
+  margin-top: 50px;
+  padding-right: 30px;
+  margin-left: 30px;
+  font-size: 42px;
+}
+
+.unselected {
+  opacity: 0.2;
+}
+
+hr {
+  border: 1px solid #F1A9B4;
+  width: 50%;
+  margin-top: 30px;
+}

@@ -27,16 +27,6 @@
   margin-right: 200px;
 }
 
-.toolbar {
-  
-  margin-top: 20px;
-  background-color: #F9C0C6;
-  width: 300px;
-  height: 760px;
-  border-top-right-radius: 100px;
-  border-bottom-right-radius: 100px;
-}
-
 body {
   background-color: #F1EFD8;
   text-align: center;
@@ -69,25 +59,9 @@ td {
   box-sizing: 1px solid #dcdcdc;
 }
 
-
-
-.tools {
-  position: absolute;
-  top: 40px;
-  left: 300px;
-  border: 2px solid black;
-  width: 80px;
-  padding: 10px;
-  border-radius: 10%;
-}
-
 button {
   margin-top: 5px;
   
-}
-
-.tools-button {
-  color: #C4C8BE;
 }
 
 .bottom-buttons {
@@ -96,13 +70,6 @@ button {
 
 button #reset #export {
   color: "black";
-}
-
-.tool-icons {
-  font-size: 40px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  
 }
 
 #reset-confirm {
