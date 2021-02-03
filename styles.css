@@ -29,8 +29,7 @@
 
 .toolbar {
   
-  right: 205px;
-  top: 20px;
+  margin-top: 20px;
   background-color: #F9C0C6;
   width: 300px;
   height: 760px;
