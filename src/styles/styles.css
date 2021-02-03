@@ -104,21 +104,6 @@ button #reset #export {
   margin-right: 100px;
 }
 
-#palette {
-  display: flex;
-  flex-direction: row;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  background-color:#F9C0C6;
-  width: 1000px;
-  height: 80px;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-
-}
-
 .colour-selection {
   position: relative;
   left: 38px;
@@ -139,19 +124,3 @@ button #reset #export {
   background-color: #259390;
 }
 
-.toolbar-icon {
-  margin-top: 50px;
-  padding-right: 30px;
-  margin-left: 30px;
-  font-size: 42px;
-}
-
-.unselected {
-  opacity: 0.2;
-}
-
-hr {
-  border: 1px solid #F1A9B4;
-  width: 50%;
-  margin-top: 30px;
-}
