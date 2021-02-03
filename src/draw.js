@@ -35,6 +35,7 @@ const undo = () => {
 };
 
 $(() => {
+  $("#draw").removeClass("unselected");
   makeGrid();
   for (let i = 0; i < GRID_HEIGHT; i++) {
     for (let j = 0; j < GRID_WIDTH; j++) {
