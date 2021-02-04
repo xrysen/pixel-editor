@@ -194,6 +194,7 @@ $(() => {
                 }
                 drawCircleStamp(j, i, 2, selectedColour);
               } else if (event.type === "mousedown") {
+                takeSnapshot();
                 drawCircleStamp(j, i, 2, selectedColour);
                 placingStamp = false;
               }

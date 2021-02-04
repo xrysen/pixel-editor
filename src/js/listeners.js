@@ -101,8 +101,17 @@ for (let i = 0; i < palettes.length; i++) {
 }
 
 $("#undo").on("click", () => {
+  placingStamp = false;
   undo();
 });
+
+$(".canvas").on("mouseleave", () => {
+  if (placingStamp) {
+    undo();
+    placingStamp = false;
+  }
+  console.log("Out");
+})
 
 $("#test").on("click", () => {
   drawCircleStamp(16, 16, 10, selectedColour);
