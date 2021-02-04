@@ -10,7 +10,6 @@ const generatePalette = (palette) => {
   for (let i = 0; i < palette.length; i++) {
     $(`#colour-${i}`).css("background-color", palette[i]);
   }
-  $(`#colour-0`).append("<div class = 'colour-selector'></div>");
 };
 
 const showAllPalettes = () => {
@@ -33,21 +32,25 @@ const showAll = () => {
   }
 }
 
+const setSelectedColour = (index) => {
+  selectedColour = getRGBValues($(`#colour-${index}`).css("background-color"));
+  selectedColour = convertRGBtoHex(
+    Number(selectedColour[0]),
+    Number(selectedColour[1]),
+    Number(selectedColour[2])
+  );
+}
+
 drawPaletteBackground();
 generatePalette(palettes[0]);
+$(`#colour-0`).append("<div class = 'colour-selector'></div>");
 showAll();
 
 for (let i = 0; i < 16; i++) {
   $(`#colour-${i}`).on("click", () => {
     $(".colour-selector").remove();
     $(`#colour-${i}`).append("<div class = 'colour-selector'></div>");
-    selectedColour = getRGBValues($(`#colour-${i}`).css("background-color"));
-    selectedColour = convertRGBtoHex(
-      Number(selectedColour[0]),
-      Number(selectedColour[1]),
-      Number(selectedColour[2])
-    );
-    console.log(selectedColour);
+    setSelectedColour(i);
   });
 }
 

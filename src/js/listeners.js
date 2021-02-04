@@ -3,11 +3,9 @@ $(document)
     switch (event.which) {
       case 1:
         mouseButton = 1;
-        console.log("Left click");
         break;
       case 3:
         mouseButton = 3;
-        console.log("Right click");
         break;
     }
     mouseDown = true;
@@ -84,6 +82,16 @@ $("#palette-icon").on("click", () => {
   $("#palette-icon").toggleClass("unselected");
   $("#choose-palette").slideToggle();
 })
+
+for (let i = 0; i < palettes.length; i++) {
+  $(`#palette-${i}`).on("click", () => {
+    generatePalette(palettes[i]);
+    $('#choose-palette').slideToggle();
+    $(".colour-selector").remove();
+    $(`#colour-0`).append("<div class = 'colour-selector'></div>");
+    setSelectedColour(0);
+  })
+}
 
 $("#undo").on("click", () => {
   undo();
