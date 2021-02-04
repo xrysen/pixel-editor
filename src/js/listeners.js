@@ -79,6 +79,12 @@ $("#circle").on("click", () => {
   $("#circle").removeClass("unselected");
 });
 
+$("#palette-icon").on("click", () => {
+  addUnselectedToAll();
+  $("#palette-icon").toggleClass("unselected");
+  $("#choose-palette").slideToggle();
+})
+
 $("#undo").on("click", () => {
   undo();
 });
