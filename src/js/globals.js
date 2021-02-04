@@ -9,6 +9,7 @@ let selectedColour = "#DC2F31";
 let snapShot = [];
 let lineChoosingPoints = true;
 let lineStartingPoint = [];
+let placingStamp = false;
 
 let circleRadius = 0;
 let mouseY = 0;

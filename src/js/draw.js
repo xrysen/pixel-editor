@@ -182,6 +182,22 @@ $(() => {
               );
             }
             break;
+
+            case "circle-stamp":
+              if (event.type === "mouseover") {
+                if (!placingStamp) {
+                  takeSnapshot();
+                  placingStamp = true;
+                }
+                for (const block of snapShot) {
+                  setPixel(block.y, block.x, block.colour);
+                }
+                drawCircleStamp(j, i, 2, selectedColour);
+              } else if (event.type === "mousedown") {
+                drawCircleStamp(j, i, 2, selectedColour);
+                placingStamp = false;
+              }
+              break;
         }
       });
     }

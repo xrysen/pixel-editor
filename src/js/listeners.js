@@ -37,6 +37,7 @@ const addUnselectedToAll = () => {
   $("#line").addClass("unselected");
   $("#square").addClass("unselected");
   $("#circle").addClass("unselected");
+  $("#circle-stamp").addClass("unselected");
 };
 
 $("#draw").addClass("selected");
@@ -77,6 +78,12 @@ $("#circle").on("click", () => {
   $("#circle").removeClass("unselected");
 });
 
+$("#circle-stamp").on("click", () => {
+  addUnselectedToAll();
+  setMode("circle-stamp");
+  $("#circle-stamp").removeClass("unselected");
+})
+
 $("#palette-icon").on("click", () => {
   addUnselectedToAll();
   $("#palette-icon").toggleClass("unselected");
@@ -96,6 +103,10 @@ for (let i = 0; i < palettes.length; i++) {
 $("#undo").on("click", () => {
   undo();
 });
+
+$("#test").on("click", () => {
+  drawCircleStamp(16, 16, 10, selectedColour);
+})
 
 $("#export").on("click", () => {
   $("table").css("border", "none");

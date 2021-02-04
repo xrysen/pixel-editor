@@ -26,7 +26,6 @@ const showAll = () => {
   showAllPalettes();
   for (let i = 0; i < palettes.length; i++) {
     for (let j = 0; j < palettes[i].length; j++) {
-      console.log(palettes[i][j]);
       $(`#colours-${i}-${j}`).css("background-color", palettes[i][j]);
     }
   }
