@@ -1,8 +1,8 @@
 #palette {
+  position: fixed;
   display: flex;
   flex-direction: row;
-  margin-left: auto;
-  margin-right: auto;
+  left: 480px;
   margin-top: 0px;
   margin-bottom: 10px;
   background-color: #f9c0c6;
@@ -16,7 +16,7 @@
   display: none;
   position: absolute;
   top: 8px;
-  left: 450px;
+  left: 480px;
   z-index: 1;
   width: 1000px;
   height: 300px;

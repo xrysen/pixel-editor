@@ -22,6 +22,9 @@
 }
 
 .column {
+  position: fixed;
+  left: 526px;
+  top: 100px;
   display: flex;
   flex-direction: row;
   margin-right: 200px;
@@ -65,7 +68,9 @@ button {
 }
 
 .bottom-buttons {
-  margin: auto;
+  position: fixed;
+  left: 40%;
+  top: 900px;
 }
 
 button #reset #export {
