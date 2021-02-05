@@ -193,10 +193,10 @@ $(() => {
                 for (const block of snapShot) {
                   setPixel(block.y, block.x, block.colour);
                 }
-                drawCircleStamp(j, i, 1, selectedColour);
+                drawCircleStamp(j, i, 6, selectedColour);
               } else if (event.type === "mousedown") {
                 takeSnapshot();
-                drawCircleStamp(j, i, 1, selectedColour);
+                drawCircleStamp(j, i, 6, selectedColour);
                 placingStamp = false;
               }
               break;
