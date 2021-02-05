@@ -71,7 +71,14 @@ td {
 button {
   margin-top: 2px;
   font-family: "humming";
-  
+  border-radius: 30px;
+  background-color: #F691CB;
+  color: #FDFFEA;
+  outline: none;
+}
+
+button:hover {
+  color: #45C4FF;
 }
 
 .bottom-buttons {
