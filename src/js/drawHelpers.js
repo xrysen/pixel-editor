@@ -156,7 +156,37 @@ const drawStar = (x, y, size, colour) => {
       line(x + 5, y + 11, x + 8, y + 11, colour);
       line(x - 8, y + 12, x - 7, y + 12, colour);
       line(x + 7, y + 12, x + 8, y + 12, colour);
+      break;
   }
   
 }
-//ACEBD
+
+const drawHeartStamp = (x, y, size, colour) => {
+  switch(size) {
+    case "large":
+      line(x - 11, y - 5, x - 11, y, colour);
+      line(x - 10, y - 7, x - 10, y + 2, colour);
+      line(x - 9, y - 8, x - 9, y + 3, colour);
+      line(x - 8, y - 9, x - 8, y + 4, colour);
+      line(x - 7, y - 9, x - 7, y + 5, colour);
+      line(x - 6, y - 9, x - 6, y + 6, colour);
+      line(x - 5, y - 9, x - 5, y + 7, colour);
+      line(x - 4, y - 9, x - 4, y + 8, colour);
+      line(x - 3, y - 8, x - 3, y + 9, colour);
+      line(x - 2, y - 7, x - 2, y + 9, colour);
+      line(x - 1, y - 6, x - 1, y + 10, colour);
+      line(x, y - 5, x, y + 11, colour);
+      line(x + 1, y - 6, x + 1, y + 10, colour);
+      line(x + 2, y - 7, x + 2, y + 9, colour);
+      line(x + 3, y - 8, x + 3, y + 9, colour);
+      line(x + 4, y - 9, x + 4, y + 8, colour);
+      line(x + 5, y - 9, x + 5, y + 7, colour);
+      line(x + 6, y - 9, x + 6, y + 6, colour);
+      line(x + 7, y - 9, x + 7, y + 5, colour);
+      line(x + 8, y - 9, x + 8, y + 4, colour);
+      line(x + 9, y - 8, x + 9, y + 3, colour);
+      line(x + 10, y - 7, x + 10, y + 2, colour);
+      line(x + 11, y - 5, x + 11, y, colour);
+      break;
+  }
+}

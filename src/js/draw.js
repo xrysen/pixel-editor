@@ -213,7 +213,24 @@ $(() => {
                   drawStar(j, i, "large", selectedColour);
                 } else if(event.type === "mousedown") {
                   takeSnapshot();
-                  drawStar(j, y, "large", selectedColour);
+                  drawStar(j, i, "large", selectedColour);
+                  placingStamp = false;
+                }
+                break;
+
+              case "heart-stamp":
+                if (event.type === "mouseover") {
+                  if (!placingStamp) {
+                    takeSnapshot();
+                    placingStamp = true;
+                  }
+                  for (const block of snapShot) {
+                    setPixel(block.y, block.x, block.colour);
+                  }
+                  drawHeartStamp(j, i, "large", selectedColour);
+                } else if (event.type === "mousedown") {
+                  takeSnapshot();
+                  drawHeartStamp(j, i, "large", selectedColour);
                   placingStamp = false;
                 }
                 break;

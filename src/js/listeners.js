@@ -39,6 +39,7 @@ const addUnselectedToAll = () => {
   $("#circle").addClass("unselected");
   $("#circle-stamp").addClass("unselected");
   $("#star-stamp").addClass("unselected");
+  $("#heart-stamp").addClass("unselected");
 };
 
 $("#draw").addClass("selected");
@@ -83,28 +84,34 @@ $("#circle-stamp").on("click", () => {
   addUnselectedToAll();
   setMode("circle-stamp");
   $("#circle-stamp").removeClass("unselected");
-})
+});
 
 $("#star-stamp").on("click", () => {
   addUnselectedToAll();
   setMode("star-stamp");
-  $('#star-stamp').removeClass("unselected");
-})
+  $("#star-stamp").removeClass("unselected");
+});
+
+$("#heart-stamp").on("click", () => {
+  addUnselectedToAll();
+  setMode("heart-stamp");
+  $("#heart-stamp").removeClass("unselected");
+});
 
 $("#palette-icon").on("click", () => {
   addUnselectedToAll();
   $("#palette-icon").toggleClass("unselected");
   $("#choose-palette").slideToggle();
-})
+});
 
 for (let i = 0; i < palettes.length; i++) {
   $(`#palette-${i}`).on("click", () => {
     generatePalette(palettes[i]);
-    $('#choose-palette').slideToggle();
+    $("#choose-palette").slideToggle();
     $(".colour-selector").remove();
     $(`#colour-0`).append("<div class = 'colour-selector'></div>");
     setSelectedColour(0);
-  })
+  });
 }
 
 $("#undo").on("click", () => {
@@ -117,11 +124,11 @@ $(".canvas").on("mouseleave", () => {
     undo();
     placingStamp = false;
   }
-})
+});
 
 $("#test").on("click", () => {
-  drawStar(15, 16, "large", selectedColour);
-})
+  drawHearStamp(14, 18, "large", selectedColour);
+});
 
 $("#export").on("click", () => {
   $("table").css("border", "none");
