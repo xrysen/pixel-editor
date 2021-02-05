@@ -200,6 +200,23 @@ $(() => {
                 placingStamp = false;
               }
               break;
+
+              case "star-stamp":
+                if (event.type === "mouseover") {
+                  if (!placingStamp) {
+                    takeSnapshot();
+                    placingStamp = true;
+                  }
+                  for (const block of snapShot) {
+                    setPixel(block.y, block.x, block.colour);
+                  }
+                  drawStar(j, i, "large", selectedColour);
+                } else if(event.type === "mousedown") {
+                  takeSnapshot();
+                  drawStar(j, y, "large", selectedColour);
+                  placingStamp = false;
+                }
+                break;
         }
       });
     }

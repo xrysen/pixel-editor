@@ -38,6 +38,7 @@ const addUnselectedToAll = () => {
   $("#square").addClass("unselected");
   $("#circle").addClass("unselected");
   $("#circle-stamp").addClass("unselected");
+  $("#star-stamp").addClass("unselected");
 };
 
 $("#draw").addClass("selected");
@@ -82,6 +83,12 @@ $("#circle-stamp").on("click", () => {
   addUnselectedToAll();
   setMode("circle-stamp");
   $("#circle-stamp").removeClass("unselected");
+})
+
+$("#star-stamp").on("click", () => {
+  addUnselectedToAll();
+  setMode("star-stamp");
+  $('#star-stamp').removeClass("unselected");
 })
 
 $("#palette-icon").on("click", () => {
