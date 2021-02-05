@@ -9,20 +9,25 @@
 }
 
 .toolbar-icon {
+  position: relative;
+  left: 30px;
   margin-top: 50px;
   padding-right: 30px;
-  margin-left: 50px;
+  margin-left: 0px;
   font-size: 42px;
 }
 
 .unselected {
   opacity: 0.2;
+  text-align: left;
 }
 
 hr {
   border: 1px solid #F1A9B4;
-  width: 50%;
+  width: 60%;
   margin-top: 30px;
+  position: relative;
+  left: 20px;
 }
 
 .size-selector {

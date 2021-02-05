@@ -99,7 +99,6 @@ $("#heart-stamp").on("click", () => {
 });
 
 $("#palette-icon").on("click", () => {
-  addUnselectedToAll();
   $("#palette-icon").toggleClass("unselected");
   $("#choose-palette").slideToggle();
 });
@@ -110,6 +109,7 @@ for (let i = 0; i < palettes.length; i++) {
     $("#choose-palette").slideToggle();
     $(".colour-selector").remove();
     $(`#colour-0`).append("<div class = 'colour-selector'></div>");
+    $("#palette-icon").toggleClass("unselected");
     setSelectedColour(0);
   });
 }
