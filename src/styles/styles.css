@@ -107,6 +107,12 @@ button #reset #export {
   color: #796D55;
 }
 
+.reset-choice:hover {
+  color: #45C4FF;
+  border-bottom: 2px solid #FFE500;
+  cursor: pointer;
+}
+
 #reset-yes {
   margin-right: 10px;
 }
