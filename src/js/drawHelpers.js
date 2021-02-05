@@ -87,7 +87,7 @@ const drawCircleOutline = (xCentre, yCentre, radius, colour) => {
   let radiusError = 1 - x;
 
   while (x >= y) {
-    setPixel(y + yCentre, x +xCentre, colour);
+    setPixel(y + yCentre, x + xCentre, colour);
     setPixel(y + yCentre, -x + xCentre, colour);
     setPixel(x + yCentre, y + xCentre, colour);
     setPixel(x + yCentre, -y + xCentre, colour);
@@ -103,7 +103,6 @@ const drawCircleOutline = (xCentre, yCentre, radius, colour) => {
       x--;
       radiusError += 2 * (y - x + 1);
     }
-    
   }
 };
 
@@ -127,4 +126,37 @@ const drawCircleStamp = (xCentre, yCentre, radius, colour) => {
       radiusError += 2 * (y - x + 1);
     }
   }
+};
+
+const drawStar = (x, y, size, colour) => {
+  switch (size) {
+    case "large":
+      setPixel(y - 7, x, colour);
+      setPixel(y - 8, x, colour);
+      line(x - 1, y - 6, x + 1, y - 6, colour);
+      line(x - 1, y - 5, x + 1, y - 5, colour);
+      line(x - 2, y - 4, x + 2, y - 4, colour);
+      line(x - 2, y - 3, x + 2, y - 3, colour);
+      line(x - 3, y - 2, x + 3, y - 2, colour);
+      line(x - 10, y - 1, x + 10, y - 1, colour);
+      line(x - 9, y, x + 9, y, colour);
+      line(x - 8, y + 1, x + 8, y + 1, colour);
+      line(x - 7, y + 2, x + 7, y + 2, colour);
+      line(x - 6, y + 3, x + 6, y + 3, colour);
+      line(x - 5, y + 4, x + 5, y + 4, colour);
+      line(x - 5, y + 5, x + 5, y + 5, colour);
+      line(x - 5, y + 6, x + 5, y + 6, colour);
+      line(x - 6, y + 7, x + 6, y + 7, colour);
+      line(x - 6, y + 8, x + 6, y + 8, colour);
+      line(x - 7, y + 9, x - 1, y + 9, colour);
+      line(x + 1, y + 9, x + 7, y + 9, colour);
+      line(x - 7, y + 10, x - 3, y + 10, colour);
+      line(x + 3, y + 10, x + 7, y + 10, colour);
+      line(x - 8, y + 11, x - 5, y + 11, colour);
+      line(x + 5, y + 11, x + 8, y + 11, colour);
+      line(x - 8, y + 12, x - 7, y + 12, colour);
+      line(x + 7, y + 12, x + 8, y + 12, colour);
+  }
+  
 }
+//ACEBD

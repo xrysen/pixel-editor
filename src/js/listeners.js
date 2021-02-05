@@ -110,11 +110,10 @@ $(".canvas").on("mouseleave", () => {
     undo();
     placingStamp = false;
   }
-  console.log("Out");
 })
 
 $("#test").on("click", () => {
-  drawCircleStamp(16, 16, 10, selectedColour);
+  drawStar(15, 16, "large", selectedColour);
 })
 
 $("#export").on("click", () => {

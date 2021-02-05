@@ -40,6 +40,7 @@ $(() => {
   for (let i = 0; i < GRID_HEIGHT; i++) {
     for (let j = 0; j < GRID_WIDTH; j++) {
       $(`#${i}-${j}`).on("mousedown mouseover mousemove", (event) => {
+        console.log(j, i);
         switch (drawMode) {
           case "draw":
             if (event.type === "mousedown") {
@@ -192,10 +193,10 @@ $(() => {
                 for (const block of snapShot) {
                   setPixel(block.y, block.x, block.colour);
                 }
-                drawCircleStamp(j, i, 2, selectedColour);
+                drawCircleStamp(j, i, 1, selectedColour);
               } else if (event.type === "mousedown") {
                 takeSnapshot();
-                drawCircleStamp(j, i, 2, selectedColour);
+                drawCircleStamp(j, i, 1, selectedColour);
                 placingStamp = false;
               }
               break;
