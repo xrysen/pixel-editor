@@ -32,10 +32,28 @@ hr {
 
 .size-selector {
   position: fixed;
-  top: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  top: 330px;
   width: 70px;
-  height: 190px;
+  height: 200px;
   background-color: #FDE6E0;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
 }
+
+.size-selectors {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  text-align: center;
+}
+
+.size-selected {
+  color: white;
+  background-color: #10C3BD;
+  border-radius: 50%;
+}
+
