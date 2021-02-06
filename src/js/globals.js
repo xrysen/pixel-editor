@@ -11,6 +11,8 @@ let lineChoosingPoints = true;
 let lineStartingPoint = [];
 let placingStamp = false;
 
+let selectedSize = "small";
+
 let circleRadius = 0;
 let mouseY = 0;
 

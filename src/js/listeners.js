@@ -83,17 +83,19 @@ const sizeTools = (type) => {
 
   $("#size-small").on("click", () => {
     removeSizeSelected();
+    selectedSize = "small";
     $("#size-small").addClass("size-selected");
   });
 
   $("#size-medium").on("click", () => {
     removeSizeSelected();
-    console.log("Clicked on medium");
+    selectedSize = "medium";
     $("#size-medium").addClass("size-selected");
   });
 
   $("#size-large").on("click", () => {
     removeSizeSelected();
+    selectedSize = "large";
     $("#size-large").addClass("size-selected");
   });
 };
@@ -114,12 +116,14 @@ const addUnselectedToAll = () => {
   $("#circle-stamp").addClass("unselected");
   $("#star-stamp").addClass("unselected");
   $("#heart-stamp").addClass("unselected");
+  selectedSize = "small";
 };
 
 const removeSizeSelected = () => {
   $("#size-small").removeClass("size-selected");
   $("#size-medium").removeClass("size-selected");
   $("#size-large").removeClass("size-selected");
+  selectedSize = "small";
 };
 
 $("#draw").addClass("selected");

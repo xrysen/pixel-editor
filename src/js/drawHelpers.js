@@ -188,5 +188,27 @@ const drawHeartStamp = (x, y, size, colour) => {
       line(x + 10, y - 7, x + 10, y + 2, colour);
       line(x + 11, y - 5, x + 11, y, colour);
       break;
+
+      case "medium":
+        line(x - 5, y - 3, x - 5, y, colour);
+        line(x - 4, y - 4, x - 4, y + 1, colour);
+        line(x - 3, y - 4, x - 3, y + 2, colour);
+        line(x - 2, y - 4, x - 2, y + 3, colour);
+        line(x - 1, y - 3, x - 1, y + 3, colour);
+        line(x, y - 2, x, y + 4, colour);
+        line(x + 1, y - 3, x + 1, y + 3, colour);
+        line(x + 2, y - 4, x + 2, y + 3, colour);
+        line(x + 3, y - 4, x + 3, y + 2, colour);
+        line(x + 4, y - 4, x + 4, y + 1, colour);
+        line(x + 5, y - 3, x + 5, y, colour);
+        break;
+      
+      case "small":
+        line(x - 2, y - 2, x - 2, y, colour);
+        line(x - 1, y - 2, x - 1, y + 1, colour);
+        line(x, y - 1, x, y + 2, colour);
+        line(x + 1, y - 2, x + 1, y + 1, colour);
+        line(x + 2, y - 2, x + 2, y, colour);
+        break;
   }
 }

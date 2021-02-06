@@ -211,10 +211,10 @@ $(() => {
                   for (const block of snapShot) {
                     setPixel(block.y, block.x, block.colour);
                   }
-                  drawStar(j, i, "large", selectedColour);
+                  drawStar(j, i, selectedSize, selectedColour);
                 } else if(event.type === "mousedown") {
                   takeSnapshot();
-                  drawStar(j, i, "large", selectedColour);
+                  drawStar(j, i, selectedSize, selectedColour);
                   placingStamp = false;
                 }
                 break;
@@ -228,10 +228,10 @@ $(() => {
                   for (const block of snapShot) {
                     setPixel(block.y, block.x, block.colour);
                   }
-                  drawHeartStamp(j, i, "large", selectedColour);
+                  drawHeartStamp(j, i, selectedSize, selectedColour);
                 } else if (event.type === "mousedown") {
                   takeSnapshot();
-                  drawHeartStamp(j, i, "large", selectedColour);
+                  drawHeartStamp(j, i, selectedSize, selectedColour);
                   placingStamp = false;
                 }
                 break;
