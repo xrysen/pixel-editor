@@ -157,6 +157,21 @@ const drawStar = (x, y, size, colour) => {
       line(x - 8, y + 12, x - 7, y + 12, colour);
       line(x + 7, y + 12, x + 8, y + 12, colour);
       break;
+
+    case "medium":
+      line(x, y - 4, x, y + 2, colour);
+      line(x - 1, y - 2, x + 1, y - 2, colour);
+      line(x - 5, y - 1, x + 5, y - 1, colour);
+      line(x - 4, y, x + 4, y, colour);
+      line(x - 3, y + 1, x + 3, y + 1, colour);
+      line(x - 2, y + 2, x + 2, y + 2, colour);
+      line(x - 3, y + 3, x - 1, y + 3, colour);
+      line(x + 1, y + 3, x + 3, y + 3, colour);
+      line(x - 3, y + 4, x - 2, y + 4, colour);
+      line(x + 2, y + 4, x + 3, y + 4, colour);
+      line(x - 4, y + 5, x - 3, y + 5, colour);
+      line(x + 3, y + 5, x + 4, y + 5, colour);
+      break;
   }
   
 }
