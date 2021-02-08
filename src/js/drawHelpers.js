@@ -106,25 +106,31 @@ const drawCircleOutline = (xCentre, yCentre, radius, colour) => {
   }
 };
 
-const drawCircleStamp = (xCentre, yCentre, radius, colour) => {
-  let x = radius;
-  let y = 0;
-  let radiusError = 1 - x;
-
-  while (x >= y) {
-    line(x + xCentre, y + yCentre, -x + xCentre, y + yCentre, colour);
-    line(y + xCentre, x + yCentre, -y + xCentre, x + yCentre, colour);
-    line(-x + xCentre, -y + yCentre, x + xCentre, -y + yCentre, colour);
-    line(x + xCentre, -y + yCentre, x + xCentre, -y + yCentre, colour);
-    line(-y + xCentre, -x + yCentre, y + xCentre, -x + yCentre, colour);
-    y++;
-
-    if (radiusError < 0) {
-      radiusError += 2 * y + 1;
-    } else {
-      x--;
-      radiusError += 2 * (y - x + 1);
-    }
+const drawCircleStamp = (x, y, size, colour) => {
+  switch(size) {
+    case "large":
+      line(x - 2, y - 11, x + 3, y - 11, colour);
+      line(x - 4, y - 10, x + 5, y - 10, colour);
+      line(x - 6, y - 9, x + 7, y - 9, colour);
+      line(x - 7, y - 8, x + 8, y - 8, colour);
+      line(x - 8, y - 7, x + 9, y - 7, colour);
+      line(x - 8, y - 6, x + 9, y - 6, colour);
+      line(x - 9, y - 5, x + 10, y - 5, colour);
+      line(x - 9, y - 4, x + 10, y - 4, colour);
+      line(x - 10, y - 3, x + 11, y - 3, colour);
+      line(x - 10, y - 2, x + 11, y - 2, colour);
+      line(x - 10, y - 1, x + 11, y - 1, colour);
+      line(x - 10, y, x + 11, y, colour);
+      line(x - 10, y + 1, x + 11, y + 1, colour);
+      line(x - 10, y + 2, x + 11, y + 2, colour);
+      line(x - 9, y + 3, x + 10, y + 3, colour);
+      line(x - 9, y + 4, x + 10, y + 4, colour);
+      line(x - 8, y + 5, x + 9, y + 5, colour);
+      line(x - 8, y + 6, x + 9, y + 6, colour);
+      line(x - 7, y + 7, x + 8, y + 7, colour);
+      line(x - 6, y + 8, x + 7, y + 8, colour);
+      line(x - 4, y + 9, x + 5, y + 9, colour);
+      line(x - 2, y + 10, x + 3, y + 10, colour);
   }
 };
 
@@ -179,13 +185,11 @@ const drawStar = (x, y, size, colour) => {
       line(x - 1, y - 1, x - 1, y + 1, colour);
       line(x + 1, y - 1, x + 1, y + 1, colour);
       break;
-
   }
-  
-}
+};
 
 const drawHeartStamp = (x, y, size, colour) => {
-  switch(size) {
+  switch (size) {
     case "large":
       line(x - 11, y - 5, x - 11, y, colour);
       line(x - 10, y - 7, x - 10, y + 2, colour);
@@ -212,26 +216,26 @@ const drawHeartStamp = (x, y, size, colour) => {
       line(x + 11, y - 5, x + 11, y, colour);
       break;
 
-      case "medium":
-        line(x - 5, y - 3, x - 5, y, colour);
-        line(x - 4, y - 4, x - 4, y + 1, colour);
-        line(x - 3, y - 4, x - 3, y + 2, colour);
-        line(x - 2, y - 4, x - 2, y + 3, colour);
-        line(x - 1, y - 3, x - 1, y + 3, colour);
-        line(x, y - 2, x, y + 4, colour);
-        line(x + 1, y - 3, x + 1, y + 3, colour);
-        line(x + 2, y - 4, x + 2, y + 3, colour);
-        line(x + 3, y - 4, x + 3, y + 2, colour);
-        line(x + 4, y - 4, x + 4, y + 1, colour);
-        line(x + 5, y - 3, x + 5, y, colour);
-        break;
-      
-      case "small":
-        line(x - 2, y - 2, x - 2, y, colour);
-        line(x - 1, y - 2, x - 1, y + 1, colour);
-        line(x, y - 1, x, y + 2, colour);
-        line(x + 1, y - 2, x + 1, y + 1, colour);
-        line(x + 2, y - 2, x + 2, y, colour);
-        break;
+    case "medium":
+      line(x - 5, y - 3, x - 5, y, colour);
+      line(x - 4, y - 4, x - 4, y + 1, colour);
+      line(x - 3, y - 4, x - 3, y + 2, colour);
+      line(x - 2, y - 4, x - 2, y + 3, colour);
+      line(x - 1, y - 3, x - 1, y + 3, colour);
+      line(x, y - 2, x, y + 4, colour);
+      line(x + 1, y - 3, x + 1, y + 3, colour);
+      line(x + 2, y - 4, x + 2, y + 3, colour);
+      line(x + 3, y - 4, x + 3, y + 2, colour);
+      line(x + 4, y - 4, x + 4, y + 1, colour);
+      line(x + 5, y - 3, x + 5, y, colour);
+      break;
+
+    case "small":
+      line(x - 2, y - 2, x - 2, y, colour);
+      line(x - 1, y - 2, x - 1, y + 1, colour);
+      line(x, y - 1, x, y + 2, colour);
+      line(x + 1, y - 2, x + 1, y + 1, colour);
+      line(x + 2, y - 2, x + 2, y, colour);
+      break;
   }
-}
+};
