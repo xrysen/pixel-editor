@@ -37,6 +37,35 @@ const convertRGBtoHex = (r, g, b) => {
   return `#${r}${g}${b}`;
 };
 
+const pencil = (x, y, size, colour) => {
+  switch(size) {
+    case "small":
+      setPixel(x, y, colour);
+    break;
+
+    case "medium":
+      setPixel(x, y, colour);
+      setPixel(x + 1, y, colour);
+      setPixel(x, y + 1, colour);
+      setPixel(x + 1, y + 1, colour);
+      break;
+
+    case "large":
+      setPixel(x, y, colour);
+      setPixel(x + 1, y, colour);
+      setPixel(x + 2, y, colour);
+
+      setPixel(x, y + 1, colour);
+      setPixel(x + 1, y + 1, colour);
+      setPixel(x + 2, y + 1, colour);
+
+      setPixel(x, y + 2, colour);
+      setPixel(x + 1, y + 2, colour);
+      setPixel(x + 2, y + 2, colour);
+      break;
+  }
+}
+
 const floodFill = (x, y, orgColour, newColour) => {
   if (x < 0 || x > GRID_WIDTH - 1 || y < 0 || y > GRID_HEIGHT - 1) return;
   if (getPixel(x, y) !== orgColour) return;

@@ -48,14 +48,14 @@ $(() => {
               takeSnapshot();
               switch (event.which) {
                 case 1:
-                  setPixel(i, j, selectedColour);
+                  pencil(i, j, selectedSize, selectedColour);
                   break;
                 case 3:
                   erasePixel(i, j);
               }
             }
             if (mouseDown && mouseButton === 1) {
-              setPixel(i, j, selectedColour);
+              pencil(i, j, selectedSize, selectedColour);
             } else if (mouseDown && mouseButton === 3) {
               erasePixel(i, j);
             }
