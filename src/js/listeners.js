@@ -246,15 +246,7 @@ $("#reset-no").on("click", () => {
 });
 
 $("#reset-yes").on("click", () => {
-  setMode("draw");
-  snapShot = [];
-  placingStamp = false;
-  $("#reset-confirm").css("display", "none");
-  for (let i = 0; i < GRID_HEIGHT; i++) {
-    for (let j = 0; j < GRID_WIDTH; j++) {
-      setPixel(i, j, "white");
-    }
-  }
+  window.location.reload();
 });
 
 $("#toggle-grid").on("click", () => {
