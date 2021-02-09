@@ -59,12 +59,14 @@ table {
 tr {
   border-spacing: 0;
   height: 25px;
+  padding: 0;
 }
 
 td {
   border-spacing: 0;
   min-width: 25px;
   margin: 0px;
+  padding: 0;
   box-sizing: 1px solid #dcdcdc;
 }
 
