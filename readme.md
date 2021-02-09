@@ -1,13 +1,37 @@
-# Pixel Editor
+# AC Pixel Editor
 
-Small project for me to practise my front-end skills
+## Introduction
 
-This is an in-browser pixel art editor
+This started off as a small project for me to practise my front-end skills but has been growing pretty quickly.
+
+AC Pixel Editor is an in-browser custom style editor aimed to be compatible with Animal Crossing New Horizons.  
 
 You can play with it here:
 [https://xrysen.github.io/pixel-editor/](https://xrysen.github.io/pixel-editor/)
 
-Currently using HTML/CSS/Javascript/jQuery
+## Features
+- Basic Draw tools (Draw, fill)
+- Shapes tools (Line, Square, Circle)
+- Shape Stamps (Star, Circle, Heart)
+- Multiple size selection for Draw and Stamp tools
+- Palette Swapping - All palettes are taken from Animal Crossing
+- Export as a PNG
 
-As well as the tableExport jQuery plugin found here:
-[https://github.com/hhurz/tableExport.jquery.plugin](https://github.com/hhurz/tableExport.jquery.plugin)
+## Screenshots
+<img src = "https://github.com/xrysen/pixel-editor/blob/master/docs/ss1.png?raw=true">
+
+## Technologies
+- HTML 5
+- CSS
+- jQuery
+- <a href = "https://github.com/hhurz/tableExport.jquery.plugin">tableExport jQuery Plugin</a>
+
+## Known Issues
+- The Bucket Fill doesn't currently work as intended
+- Undo doesn't work as intended when applying stamps
+
+## Planned Features
+- Mirror Mode
+- Move design tool
+- Palette editing
+- Design Templates for different clothes
