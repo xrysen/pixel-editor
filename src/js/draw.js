@@ -314,6 +314,12 @@ $(() => {
               placingStamp = false;
             }
             break;
+
+          case "complete-fill":
+            if (event.type === "mousedown") {
+              completeFill(selectedColour);
+            }
+            break;
         }
       });
     }

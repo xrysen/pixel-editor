@@ -116,6 +116,7 @@ const addUnselectedToAll = () => {
   $("#circle-stamp").addClass("unselected");
   $("#star-stamp").addClass("unselected");
   $("#heart-stamp").addClass("unselected");
+  $("#complete-fill").addClass("unselected");
   selectedSize = "small";
 };
 
@@ -194,6 +195,13 @@ $("#heart-stamp").on("click", () => {
   setMode("heart-stamp");
   $("#heart-stamp").removeClass("unselected");
 });
+
+$("#complete-fill").on("click", () => {
+  removeSizeTools();
+  addUnselectedToAll();
+  setMode("complete-fill");
+  $("#complete-fill").removeClass("unselected");
+})
 
 $("#palette-icon").on("click", () => {
   $("#palette-icon").toggleClass("unselected");

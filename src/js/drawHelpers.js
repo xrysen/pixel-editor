@@ -81,6 +81,14 @@ const floodFill = (x, y, orgColour, newColour) => {
   floodFill(x + 1, y + 1, orgColour, newColour);
 };
 
+const completeFill = (colour) => {
+  for (let y = 0; y < GRID_HEIGHT; y++) {
+    for (let x = 0; x < GRID_WIDTH; x++) {
+      setPixel(y, x, colour);
+    }
+  }
+}
+
 const line = (x1, y1, x2, y2, colour) => {
   const dx = Math.abs(x2 - x1);
   const dy = Math.abs(y2 - y1);
