@@ -9,6 +9,8 @@ AC Pixel Editor is an in-browser custom style editor aimed to be compatible with
 You can play with it here:
 [https://xrysen.github.io/pixel-editor/](https://xrysen.github.io/pixel-editor/)
 
+Left-click to draw, right-click to erase
+
 ## Features
 - Basic Draw tools (Draw, fill)
 - Shapes tools (Line, Square, Circle)
