@@ -80,15 +80,31 @@ $(() => {
                   break;
 
                 case "large":
-                  if(!$(`#border${i}-${j}`).length) {
-                    $(`#${i}-${j}`).append(`<div id = "border-top-left" class = "cursor-top-left"></div>`);
-                    $(`#${i}-${j+1}`).append(`<div id = "border-top-mid" class = "cursor-top-mid"></div>`);
-                    $(`#${i}-${j + 2}`).append(`<div id = "border-top-right" class = "cursor-top-right"></div>`);
-                    $(`#${i + 1}-${j}`).append(`<div id = "border-left" class = "cursor-left"></div>`);
-                    $(`#${i + 2}-${j}`).append(`<div id = "border-bottom-left" class = "cursor-bottom-left"></div>`);
-                    $(`#${i + 2}-${j + 1}`).append(`<div id = "border-bottom-mid" class = "cursor-bottom-mid"></div>`);
-                    $(`#${i + 2}-${j + 2}`).append(`<div id = "border-bottom-right" class = "cursor-bottom-right"></div>`);
-                    $(`#${i + 1}-${j + 2}`).append(`<div id = "border-right" class = "cursor-right"></div>`);
+                  if (!$(`#border${i}-${j}`).length) {
+                    $(`#${i}-${j}`).append(
+                      `<div id = "border-top-left" class = "cursor-top-left"></div>`
+                    );
+                    $(`#${i}-${j + 1}`).append(
+                      `<div id = "border-top-mid" class = "cursor-top-mid"></div>`
+                    );
+                    $(`#${i}-${j + 2}`).append(
+                      `<div id = "border-top-right" class = "cursor-top-right"></div>`
+                    );
+                    $(`#${i + 1}-${j}`).append(
+                      `<div id = "border-left" class = "cursor-left"></div>`
+                    );
+                    $(`#${i + 2}-${j}`).append(
+                      `<div id = "border-bottom-left" class = "cursor-bottom-left"></div>`
+                    );
+                    $(`#${i + 2}-${j + 1}`).append(
+                      `<div id = "border-bottom-mid" class = "cursor-bottom-mid"></div>`
+                    );
+                    $(`#${i + 2}-${j + 2}`).append(
+                      `<div id = "border-bottom-right" class = "cursor-bottom-right"></div>`
+                    );
+                    $(`#${i + 1}-${j + 2}`).append(
+                      `<div id = "border-right" class = "cursor-right"></div>`
+                    );
                   }
               }
             }
@@ -132,6 +148,11 @@ $(() => {
             break;
 
           case "line":
+            if (!$(`#border-top-left`).length) {
+              $(`#${i}-${j}`).append(
+                `<div id = 'border-top-left' class = 'cursor-1'></div>`
+              );
+            }
             if (event.type === "mousedown" && lineChoosingPoints) {
               takeSnapshot();
               lineStartingPoint[0] = j;
@@ -163,6 +184,11 @@ $(() => {
             break;
 
           case "square":
+            if (!$(`#border-top-left`).length) {
+              $(`#${i}-${j}`).append(
+                `<div id = 'border-top-left' class = 'cursor-1'></div>`
+              );
+            }
             if (event.type === "mousedown" && lineChoosingPoints) {
               takeSnapshot();
               lineStartingPoint[0] = j;
@@ -194,6 +220,11 @@ $(() => {
             break;
 
           case "circle":
+            if (!$(`#border-top-left`).length && event.type === "mouseover") {
+              $(`#${i}-${j}`).append(
+                `<div id = 'border-top-left' class = 'cursor-1'></div>`
+              );
+            }
             if (event.type === "mousedown" && lineChoosingPoints) {
               mouseY = event.clientY;
               takeSnapshot();
