@@ -29,6 +29,7 @@ You can play with it here:
 ## Known Issues
 - The Bucket Fill doesn't currently work as intended
 - Undo doesn't work as intended when applying stamps
+- The exported image hasn't been tested with Animal Crossing style import yet
 
 ## Planned Features
 - Mirror Mode
