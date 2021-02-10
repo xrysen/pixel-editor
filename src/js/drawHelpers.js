@@ -358,4 +358,13 @@ const removeAllBorders = () => {
   $(`#border-bottom-mid-1`).remove();
   $(`#border-left-1`).remove();
   $(`#border-right-1`).remove();
+
+  $(`#border-top-left-2`).remove();
+  $(`#border-top-right-2`).remove();
+  $(`#border-bottom-left-2`).remove();
+  $(`#border-bottom-right-2`).remove();
+  $(`#border-top-mid-2`).remove();
+  $(`#border-bottom-mid-2`).remove();
+  $(`#border-left-2`).remove();
+  $(`#border-right-2`).remove();
 };

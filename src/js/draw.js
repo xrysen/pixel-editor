@@ -69,25 +69,41 @@ $(() => {
 
           case "mirror":
             let x1 = j - 16;
+            let offset = 15;
+            switch(selectedSize) {
+              case "small":
+                offset = 15;
+                break;
+              case "medium":
+                offset = 14;
+                break;
+              case "large":
+                offset = 13;
+                break;
+            }
+            if (!$(`#border-top-left-1`).length) {
+              drawSelectorBorder(i, j, "1", selectedSize);
+              drawSelectorBorder(i, offset - x1, "2", selectedSize);
+            }
             if (event.type === "mousedown") {
               takeSnapshot();
               switch (event.which) {
                 case 1:
                   pencil(i, j, selectedSize, selectedColour);
-                  pencil(i, 15 - x1, selectedSize, selectedColour);
+                  pencil(i, offset - x1, selectedSize, selectedColour);
                   break;
                 case 3:
                   erasePixel(i, j);
-                  erasePixel(i, 15 - x1);
+                  erasePixel(i, offset - x1);
                   break;
               }
             }
             if (mouseDown && mouseButton === 1) {
               pencil(i, j, selectedSize, selectedColour);
-              pencil(i, 15 - x1, selectedSize, selectedColour);
+              pencil(i, offset - x1, selectedSize, selectedColour);
             } else if (mouseDown && mouseButton === 3) {
               erasePixel(i, j);
-              erasePixel(i, 15 - x1);
+              erasePixel(i, offset - x1);
             }
 
             break;
