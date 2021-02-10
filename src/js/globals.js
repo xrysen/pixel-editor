@@ -15,6 +15,7 @@ let selectedSize = "small";
 
 let circleRadius = 0;
 let mouseY = 0;
+let mouseX = 0;
 
 let drawMode = "draw";
 

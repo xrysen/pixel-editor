@@ -25,6 +25,13 @@ const takeSnapshot = () => {
   }
 };
 
+const moveDesign = (xOffset, yOffset) => {
+  for (const pixel of snapShot) {
+    setPixel(pixel.y + yOffset, pixel.x + xOffset, pixel.colour);
+  }
+  snapShot = [];
+};
+
 const undo = () => {
   for (const block of snapShot) {
     setPixel(block.y, block.x, block.colour);
@@ -70,7 +77,7 @@ $(() => {
           case "mirror":
             let x1 = j - 16;
             let offset = 15;
-            switch(selectedSize) {
+            switch (selectedSize) {
               case "small":
                 offset = 15;
                 break;
@@ -81,7 +88,7 @@ $(() => {
                 offset = 13;
                 break;
             }
-            if (!$(`#border-top-left-1`).length) {
+            if (!$(`#border-top-left-1`).length && j !== 15) {
               drawSelectorBorder(i, j, "1", selectedSize);
               drawSelectorBorder(i, offset - x1, "2", selectedSize);
             }
@@ -302,6 +309,38 @@ $(() => {
               takeSnapshot();
               completeFill(selectedColour);
             }
+            break;
+
+          case "move":
+            if (event.type === "mousedown") { 
+              mouseY = i;
+              mouseX = j;
+            }
+            console.log(mouseY);
+            takeSnapshot();
+            $(`#${i}-${j}`).on("mouseout", () => {
+              if (mouseDown && mouseButton === 1) {
+                if (i > mouseY) {
+                  moveDesign(0, 1);
+                  mouseY = i;
+                }
+                if (i < mouseY) {
+                  moveDesign(0, -1);
+                  mouseY = i;
+                }
+                if ( j > mouseX) {
+                  moveDesign(1, 0);
+                  mouseX = j;
+                }
+                if (j < mouseX) {
+                  moveDesign(-1, 0);
+                  mouseX = j;
+                }
+              }
+            });
+            $(`#${i}-${j}`).on("mouseup", () => {
+             return;
+            })
             break;
         }
       });

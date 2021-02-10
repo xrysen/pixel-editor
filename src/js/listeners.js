@@ -118,6 +118,7 @@ const addUnselectedToAll = () => {
   $("#heart-stamp").addClass("unselected");
   $("#complete-fill").addClass("unselected");
   $("#mirror").addClass("unselected");
+  $("#move-design").addClass("unselected");
   selectedSize = "small";
 };
 
@@ -210,6 +211,13 @@ $("#mirror").on("click", () => {
   sizeTools("draw");
   setMode("mirror");
   $("#mirror").removeClass("unselected");
+})
+
+$("#move-design").on("click", () => {
+  removeSizeTools();
+  addUnselectedToAll();
+  setMode("move");
+  $("#move-design").removeClass("unselected");
 })
 
 $("#palette-icon").on("click", () => {
