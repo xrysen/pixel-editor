@@ -38,10 +38,10 @@ const convertRGBtoHex = (r, g, b) => {
 };
 
 const pencil = (x, y, size, colour) => {
-  switch(size) {
+  switch (size) {
     case "small":
       setPixel(x, y, colour);
-    break;
+      break;
 
     case "medium":
       setPixel(x, y, colour);
@@ -64,7 +64,7 @@ const pencil = (x, y, size, colour) => {
       setPixel(x + 2, y + 2, colour);
       break;
   }
-}
+};
 
 const floodFill = (x, y, orgColour, newColour) => {
   if (x < 0 || x > GRID_WIDTH - 1 || y < 0 || y > GRID_HEIGHT - 1) return;
@@ -87,7 +87,7 @@ const completeFill = (colour) => {
       setPixel(y, x, colour);
     }
   }
-}
+};
 
 const line = (x1, y1, x2, y2, colour) => {
   const dx = Math.abs(x2 - x1);
@@ -144,7 +144,7 @@ const drawCircleOutline = (xCentre, yCentre, radius, colour) => {
 };
 
 const drawCircleStamp = (x, y, size, colour) => {
-  switch(size) {
+  switch (size) {
     case "large":
       line(x - 2, y - 11, x + 3, y - 11, colour);
       line(x - 4, y - 10, x + 5, y - 10, colour);
@@ -296,4 +296,66 @@ const drawHeartStamp = (x, y, size, colour) => {
       line(x + 2, y - 2, x + 2, y, colour);
       break;
   }
+};
+
+const drawSelectorBorder = (y, x, id, size) => {
+  switch (size) {
+    case "small":
+      $(`#${y}-${x}`).append(
+        `<div id = 'border-top-left-${id}' class = 'cursor-1'></div>`
+      );
+      break;
+
+    case "medium":
+      $(`#${y}-${x}`).append(
+        `<div id = "border-top-left-${id}" class = "cursor-top-left"></div>`
+      );
+      $(`#${y}-${x + 1}`).append(
+        `<div id = "border-top-right-${id}" class = "cursor-top-right"></div>`
+      );
+      $(`#${y + 1}-${x}`).append(
+        `<div id = "border-bottom-left-${id}" class = "cursor-bottom-left"></div>`
+      );
+      $(`#${y + 1}-${x + 1}`).append(
+        `<div id = "border-bottom-right-${id}" class = "cursor-bottom-right"></div>`
+      );
+      break;
+
+    case "large":
+      $(`#${y}-${x}`).append(
+        `<div id = "border-top-left-${id}" class = "cursor-top-left"></div>`
+      );
+      $(`#${y}-${x + 1}`).append(
+        `<div id = "border-top-mid-${id}" class = "cursor-top-mid"></div>`
+      );
+      $(`#${y}-${x + 2}`).append(
+        `<div id = "border-top-right-${id}" class = "cursor-top-right"></div>`
+      );
+      $(`#${y + 1}-${x}`).append(
+        `<div id = "border-left-${id}" class = "cursor-left"></div>`
+      );
+      $(`#${y + 2}-${x}`).append(
+        `<div id = "border-bottom-left-${id}" class = "cursor-bottom-left"></div>`
+      );
+      $(`#${y + 2}-${x + 1}`).append(
+        `<div id = "border-bottom-mid-${id}" class = "cursor-bottom-mid"></div>`
+      );
+      $(`#${y + 2}-${x + 2}`).append(
+        `<div id = "border-bottom-right-${id}" class = "cursor-bottom-right"></div>`
+      );
+      $(`#${y + 1}-${x + 2}`).append(
+        `<div id = "border-right-${id}" class = "cursor-right"></div>`
+      );
+  }
+};
+
+const removeAllBorders = () => {
+  $(`#border-top-left-1`).remove();
+  $(`#border-top-right-1`).remove();
+  $(`#border-bottom-left-1`).remove();
+  $(`#border-bottom-right-1`).remove();
+  $(`#border-top-mid-1`).remove();
+  $(`#border-bottom-mid-1`).remove();
+  $(`#border-left-1`).remove();
+  $(`#border-right-1`).remove();
 };

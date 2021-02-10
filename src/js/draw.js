@@ -41,70 +41,13 @@ $(() => {
   for (let i = 0; i < GRID_HEIGHT; i++) {
     for (let j = 0; j < GRID_WIDTH; j++) {
       $(`#${i}-${j}`).on("mouseleave", () => {
-        $(`#border-top-left`).remove();
-        $(`#border-top-right`).remove();
-        $(`#border-bottom-left`).remove();
-        $(`#border-bottom-right`).remove();
-        $(`#border-top-mid`).remove();
-        $(`#border-bottom-mid`).remove();
-        $(`#border-left`).remove();
-        $(`#border-right`).remove();
+        removeAllBorders();
       });
       $(`#${i}-${j}`).on("mousedown mouseover mousemove", (event) => {
         switch (drawMode) {
           case "draw":
-            if (!$(`#border-top-left`).length) {
-              switch (selectedSize) {
-                case "small":
-                  $(`#${i}-${j}`).append(
-                    `<div id = 'border-top-left' class = 'cursor-1'></div>`
-                  );
-                  break;
-                case "medium":
-                  if (!$(`#border${i}-${j}`).length) {
-                    $(`#${i}-${j}`).append(
-                      `<div id = "border-top-left" class = "cursor-top-left"></div>`
-                    );
-                    $(`#${i}-${j + 1}`).append(
-                      `<div id = "border-top-right" class = "cursor-top-right"></div>`
-                    );
-                    $(`#${i + 1}-${j}`).append(
-                      `<div id = "border-bottom-left" class = "cursor-bottom-left"></div>`
-                    );
-                    $(`#${i + 1}-${j + 1}`).append(
-                      `<div id = "border-bottom-right" class = "cursor-bottom-right"></div>`
-                    );
-                  }
-                  break;
-
-                case "large":
-                  if (!$(`#border${i}-${j}`).length) {
-                    $(`#${i}-${j}`).append(
-                      `<div id = "border-top-left" class = "cursor-top-left"></div>`
-                    );
-                    $(`#${i}-${j + 1}`).append(
-                      `<div id = "border-top-mid" class = "cursor-top-mid"></div>`
-                    );
-                    $(`#${i}-${j + 2}`).append(
-                      `<div id = "border-top-right" class = "cursor-top-right"></div>`
-                    );
-                    $(`#${i + 1}-${j}`).append(
-                      `<div id = "border-left" class = "cursor-left"></div>`
-                    );
-                    $(`#${i + 2}-${j}`).append(
-                      `<div id = "border-bottom-left" class = "cursor-bottom-left"></div>`
-                    );
-                    $(`#${i + 2}-${j + 1}`).append(
-                      `<div id = "border-bottom-mid" class = "cursor-bottom-mid"></div>`
-                    );
-                    $(`#${i + 2}-${j + 2}`).append(
-                      `<div id = "border-bottom-right" class = "cursor-bottom-right"></div>`
-                    );
-                    $(`#${i + 1}-${j + 2}`).append(
-                      `<div id = "border-right" class = "cursor-right"></div>`
-                    );
-                  }
-              }
+            if (!$(`#border-top-left-1`).length) {
+              drawSelectorBorder(i, j, "1", selectedSize);
             }
 
             if (event.type === "mousedown") {
