@@ -51,8 +51,6 @@ $(() => {
         $(`#border-right`).remove();
       });
       $(`#${i}-${j}`).on("mousedown mouseover mousemove", (event) => {
-        console.log(j, i);
-
         switch (drawMode) {
           case "draw":
             if (!$(`#border-top-left`).length) {
@@ -124,6 +122,31 @@ $(() => {
             } else if (mouseDown && mouseButton === 3) {
               erasePixel(i, j);
             }
+            break;
+
+          case "mirror":
+            let x1 = j - 16;
+            if (event.type === "mousedown") {
+              takeSnapshot();
+              switch (event.which) {
+                case 1:
+                  pencil(i, j, selectedSize, selectedColour);
+                  pencil(i, 15 - x1, selectedSize, selectedColour);
+                  break;
+                case 3:
+                  erasePixel(i, j);
+                  erasePixel(i, 15 - x1);
+                  break;
+              }
+            }
+            if (mouseDown && mouseButton === 1) {
+              pencil(i, j, selectedSize, selectedColour);
+              pencil(i, 15 - x1, selectedSize, selectedColour);
+            } else if (mouseDown && mouseButton === 3) {
+              erasePixel(i, j);
+              erasePixel(i, 15 - x1);
+            }
+
             break;
 
           case "fill":
