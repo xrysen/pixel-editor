@@ -317,6 +317,7 @@ $(() => {
 
           case "complete-fill":
             if (event.type === "mousedown") {
+              takeSnapshot();
               completeFill(selectedColour);
             }
             break;
