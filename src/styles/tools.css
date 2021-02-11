@@ -137,3 +137,7 @@ hr {
   border-right: 3px solid #0CC6B8;
   z-index: 1;
 }
+
+.draw-cursor {
+  cursor: url('../../assets/cursors/draw.png') 40 75, auto;
+}

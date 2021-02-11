@@ -25,10 +25,20 @@ const removeSelected = (current) => {
   $(current).toggleClass("selected");
 };
 
+const setCursor = (mode) => {
+  switch(mode) {
+    case "draw":
+      $("table").addClass("draw-cursor");
+  }
+}
+
+
 const setMode = (type) => {
   drawMode = type;
-  console.log("Mode is now: " + drawMode);
+  setCursor(type);
 };
+
+
 
 const sizeTools = (type) => {
   let icon = [];

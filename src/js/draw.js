@@ -45,6 +45,7 @@ $(() => {
   $("#draw").removeClass("unselected");
   sizeTools("draw");
   makeGrid();
+  setCursor("draw");
   for (let i = 0; i < GRID_HEIGHT; i++) {
     for (let j = 0; j < GRID_WIDTH; j++) {
       $(`#${i}-${j}`).on("mouseleave", () => {
