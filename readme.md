@@ -17,6 +17,8 @@ Left-click to draw, right-click to erase
 - Basic Draw tools (Draw, fill)
 - Shapes tools (Line, Square, Circle)
 - Shape Stamps (Star, Circle, Heart)
+- Mirror Mode
+- Move Selection (buggy)
 - Multiple size selection for Draw and Stamp tools
 - Palette Swapping - All palettes are taken from Animal Crossing
 - Export as a PNG
@@ -34,9 +36,8 @@ Left-click to draw, right-click to erase
 - The Bucket Fill doesn't currently work as intended
 - Undo doesn't work as intended when applying stamps
 - The exported image hasn't been tested with Animal Crossing style import yet
+- Move mode sort of works but if you reach the edge of the drawing area funky things happen
 
 ## Planned Features
-- Mirror Mode
-- Move design tool
 - Palette editing
 - Design Templates for different clothes
