@@ -11,7 +11,7 @@ You can play with it here:
 
 Left-click to draw, right-click to erase
 
-<em>This uses a fixed layout and isn't a responsive design in the least. Best viewed at 1920x1080 resolution.
+<em>This uses a fixed layout and isn't a responsive design in the least. Best viewed at 1920x1080 resolution.</em>
 
 ## Features
 - Basic Draw tools (Draw, fill)
