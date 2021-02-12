@@ -27,8 +27,12 @@ const removeSelected = (current) => {
 
 const setCursor = (mode) => {
   switch(mode) {
+
+    case "line":
+    case "circle":
     case "draw":
       $("table").addClass("draw-cursor");
+      break;
   }
 }
 
