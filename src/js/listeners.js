@@ -290,14 +290,14 @@ $("#reset-yes").on("click", () => {
 
 $("#toggle-grid").on("click", () => {
   if (grid === "on") {
-    $("table").css("border", "1px solid transparent");
-    $("tr").css("border", "1px solid transparent");
-    $("td").css("border", "1px solid transparent");
+    $(".canvas").css("border", "1px solid transparent");
+    $("tr.main").css("border", "1px solid transparent");
+    $("td.main").css("border", "1px solid transparent");
     grid = "off";
   } else {
-    $("table").css("border", "1px solid black");
-    $("tr").css("border", "1px solid black");
-    $("td").css("border", "1px solid black");
+    $(".canvas").css("border", "1px solid black");
+    $("tr.main").css("border", "1px solid black");
+    $("td.main").css("border", "1px solid black");
     grid = "on";
   }
 });
