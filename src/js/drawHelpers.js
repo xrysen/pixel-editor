@@ -9,6 +9,7 @@ const getPixel = (x, y) => {
 
 const erasePixel = (id, id2) => {
   $(`#${id}-${id2}`).css("background-color", "white");
+  $(`#prev-${id}-${id2}`).css("background-color", "white");
 };
 
 // Converts the string returned from .css background-colour to an array of values
