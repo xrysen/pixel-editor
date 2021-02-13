@@ -11,7 +11,7 @@ const makeGrid = () => {
         .append(`<td id=${i}-${j} class ="main"></td>`)
         .css("background-color", "white");
         $(`#prev-tr-${i}`).append(`<td id = "prev-${i}-${j}" class = "td-preview"></td>`);
-        $(`#export-tr-${i}`).append(`<td id = "export-${i}-${j}" class = "tr-export"></td>`);
+        $(`#export-tr-${i}`).append(`<td id = "export-${i}-${j}" class = "td-export"></td>`);
     }
   }
 };

@@ -1,6 +1,7 @@
 const setPixel = (x, y, colour) => {
   $(`#${x}-${y}`).css("background-color", colour);
   $(`#prev-${x}-${y}`).css("background-color", colour);
+  $(`#export-${x}-${y}`).css("background-color", colour);
 };
 
 const getPixel = (x, y) => {

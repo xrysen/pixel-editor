@@ -267,13 +267,7 @@ $("#test").on("click", () => {
 });
 
 $("#export").on("click", () => {
-  $("table").css("border", "none");
-  $("tr").css("border", "none");
-  $("td").css("border", "none");
-  $(".canvas").tableExport({ fileName: "image", type: "png" });
-  $("table").css("border", "1px solid black");
-  $("tr").css("border", "1px solid black");
-  $("td").css("border", "1px solid black");
+  $(".table-export").tableExport({ fileName: "image", type: "png" });
 });
 
 $("#reset").on("click", () => {
