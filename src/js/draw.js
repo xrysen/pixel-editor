@@ -1,6 +1,8 @@
 const makeGrid = () => {
   for (let i = 0; i < GRID_HEIGHT; i++) {
     $(".canvas").append(`<tr id=tr${i} class="main"></tr>`);
+    $(".table-preview").append(`<tr id = "prev-tr-${i}" class = "tr-preview"></tr>`);
+    $(".table-export").append(`<tr id = "export-tr-${i}" class = "tr-export"></div>`);
   }
 
   for (let i = 0; i < GRID_HEIGHT; i++) {
@@ -8,21 +10,11 @@ const makeGrid = () => {
       $(`#tr${i}`)
         .append(`<td id=${i}-${j} class ="main"></td>`)
         .css("background-color", "white");
+        $(`#prev-tr-${i}`).append(`<td id = "prev-${i}-${j}" class = "td-preview"></td>`);
+        $(`#export-tr-${i}`).append(`<td id = "export-${i}-${j}" class = "tr-export"></td>`);
     }
   }
 };
-
-const makePreviewGrid = () => {
-  for (let i = 0; i < GRID_HEIGHT; i++) {
-    $(".table-preview").append(`<tr id = "prev-tr-${i}" class = "tr-preview"></tr>`);
-  }
-
-  for (let i = 0; i < GRID_HEIGHT; i++) {
-    for (let j = 0; j < GRID_WIDTH; j++) {
-      $(`#prev-tr-${i}`).append(`<td id = "prev-${i}-${j}" class = "td-preview"></td>`);
-    }
-  }
-}
 
 const takeSnapshot = () => {
   snapShot = [];
@@ -57,7 +49,6 @@ $(() => {
   $("#draw").removeClass("unselected");
   sizeTools("draw");
   makeGrid();
-  makePreviewGrid();
   setCursor("draw");
   for (let i = 0; i < GRID_HEIGHT; i++) {
     for (let j = 0; j < GRID_WIDTH; j++) {

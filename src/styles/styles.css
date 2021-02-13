@@ -70,25 +70,38 @@ td.main {
   box-sizing: 1px solid #dcdcdc;
 }
 
+.table-export {
+  border-collapse: collapse;
+  position: fixed;
+  left: 120;
+  top: 300px;
+  width: 32px;
+  height: 32px;
+}
+
 .table-preview {
   border-collapse: collapse;
   position: fixed;
   left: 120px;
   top: 100px;
-  width: 320px;
-  height: 320px;
+  width: 256px;
+  height: 256px;
 }
 
  .tr-preview {
-  height: 10px;
+  height: 8px;
   background-color: white;
   border: none;
 }
 
 .td-preview {
-  width: 10px;
+  width: 8px;
   background-color: white;
   border: none;
+}
+
+#canvas-container {
+  background-color: brown;
 }
 
 button {
