@@ -12,11 +12,11 @@ const makeGrid = () => {
         .css("background-color", "white");
         $(`#prev-tr-${i}`).append(`<td id = "prev-${i}-${j}" class = "td-preview"></td>`);
         $(`#export-tr-${i}`).append(`<td id = "export-${i}-${j}" class = "td-export"></td>`);
+      }
     }
-  }
 };
 
-const takeSnapshot = () => {
+const takeSnapshot = (shapeTool) => {
   snapShot = [];
   for (let y = 0; y < GRID_HEIGHT; y++) {
     for (let x = 0; x < GRID_WIDTH; x++) {
@@ -25,6 +25,13 @@ const takeSnapshot = () => {
         y: y,
         colour: $(`#${y}-${x}`).css("background-color"),
       });
+      if (shapeTool) {
+        shapeSnapShot.push({
+          x: x,
+          y: y,
+          colour: $(`#${y}-${x}`).css("background-color"),
+        });
+      }
     }
   }
 };
