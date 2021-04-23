@@ -67,8 +67,8 @@ hr {
 }
 
 .cursor-top-left {
-  width: 22px;
-  height: 21px;
+  width: 19px;
+  height: 18px;
   margin: 0px;
   padding: 0px;
   border-top: 3px solid #0CC6B8;
@@ -77,8 +77,8 @@ hr {
 }
 
 .cursor-top-right {
-  width: 22px;
-  height: 21px;
+  width: 19px;
+  height: 18px;
   margin: 0px;
   padding: 0px;
   border-top: 3px solid #0CC6B8;
@@ -87,8 +87,8 @@ hr {
 }
 
 .cursor-bottom-left {
-  width: 22px;
-  height: 21px;
+  width: 19px;
+  height: 18px;
   margin: 0px;
   padding: 0px;
   border-left: 3px solid #0CC6B8;
@@ -97,8 +97,8 @@ hr {
 }
 
 .cursor-bottom-right {
-  width: 22px;
-  height: 21px;
+  width: 19px;
+  height: 18px;
   margin: 0px;
   padding: 0px;
   border-right: 3px solid #0CC6B8;
@@ -107,7 +107,7 @@ hr {
 }
 
 .cursor-top-mid {
-  height: 21px;
+  height: 18px;
   margin: 0px;
   padding: 0px;
   border-top: 3px solid #0CC6B8;
@@ -115,7 +115,7 @@ hr {
 }
 
 .cursor-bottom-mid {
-  height: 21px;
+  height: 18px;
   margin: 0px;
   padding: 0px;
   border-bottom: 3px solid #0CC6B8;
@@ -123,7 +123,7 @@ hr {
 }
 
 .cursor-left {
-  height: 24px;
+  height: 21px;
   margin: 0px;
   padding: 0px;
   border-left: 3px solid #0CC6B8;
@@ -131,7 +131,7 @@ hr {
 }
 
 .cursor-right {
-  height: 24px;
+  height: 21px;
   margin: 0px;
   padding: 0px;
   border-right: 3px solid #0CC6B8;
