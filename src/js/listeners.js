@@ -300,3 +300,11 @@ $("#test").on("click", () => {
   drawCircleOutline(16, 16, 4, $("#colour-picker").val());
 });
 
+for (let i = 1; i <= 6; i++) {
+  $(`#template-img-${i}`).on("mouseenter", () => {
+    $(`.speech-bubble-${i}`).fadeToggle();
+  });
+  $(`#template-img-${i}`).on("mouseleave", () => {
+    $(`.speech-bubble-${i}`).fadeToggle();
+  });
+}
