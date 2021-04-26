@@ -15,7 +15,11 @@
       crossorigin="anonymous"
     />
   </head>
-  <body oncontextmenu="return false;" ondragstart="return false;" ondrop="return false;">
+  <body
+    oncontextmenu="return false;"
+    ondragstart="return false;"
+    ondrop="return false;"
+  >
     <div id="palette"></div>
 
     <div class="table-export"></div>
@@ -111,24 +115,65 @@
     <div id="choose-palette"></div>
 
     <div id="choose-template">
-      <div id = "template-content">
-        <div id = "template-icon-container">
-          <div class = "template-icon">
-            <img class = "template-img" src = "assets/img/template-icons/tops-selected.png">
+      <div id="template-content">
+        <div id="template-icon-container">
+          <div class="template-icon">
+            <img
+              class="template-img"
+              src="assets/img/template-icons/tops-selected.png"
+            />
           </div>
-          <div class = "template-icon"><img class = "template-img" src = "assets/img/template-icons/dress-unselected.png"></div>
-          <div class = "template-icon"><img class = "template-img" src = "assets/img/template-icons/head-unselected.png"></div>
-          <div class = "template-icon"><img class = "template-img" src = "assets/img/template-icons/var-unselected.png"></div>
+          <div class="template-icon">
+            <img
+              class="template-img"
+              onmouseover="this.src='assets/img/template-icons/dress-selected.png'"
+              onmouseout="this.src='assets/img/template-icons/dress-unselected.png'"
+              src="assets/img/template-icons/dress-unselected.png"
+            />
+          </div>
+          <div class="template-icon">
+            <img
+              class="template-img"
+              onmouseover="this.src='assets/img/template-icons/head-selected.png'"
+              onmouseout="this.src='assets/img/template-icons/head-unselected.png'"
+              src="assets/img/template-icons/head-unselected.png"
+            />
+          </div>
+          <div class="template-icon">
+            <img
+              class="template-img"
+              onmouseover="this.src='assets/img/template-icons/var-selected.png'"
+              onmouseout="this.src='assets/img/template-icons/var-unselected.png'"
+              src="assets/img/template-icons/var-unselected.png"
+            />
+          </div>
         </div>
-        <div>
-          <img src = "assets/img/templates/top1.png">
-          <img src = "assets/img/templates/top2.png">
-          <img src = "assets/img/templates/top3.png">
-          <br />
-          <img src = "assets/img/templates/top4.png">
-          <img src = "assets/img/templates/top5.png">
-          <img src = "assets/img/templates/top6.png">
-
+        <div class="templates">
+          <div id="template-1">
+            <div class = "speech-bubble-1" style="display: none">Tank Top</div>
+            <img id="template-img-1" src="assets/img/templates/top1.png" />
+          </div>
+          <div id="template-2">
+            <div class = "speech-bubble-2" style="display: none">Short-Sleeve Tee</div>
+            <img id="template-img-2" src="assets/img/templates/top2.png" />
+          </div>
+          <div id="template-3">
+            <div class = "speech-bubble-3" style="display: none">Long-sleeve dress shirt</div>
+            <img id="template-1" src="assets/img/templates/top3.png" />
+          </div>
+          <div class = "break"></div>
+          <div id = "template-4">
+            <div class = "speech-bubble-4" style="display: none">Sweater</div>
+            <img id="template-1" src="assets/img/templates/top4.png" />
+          </div>
+          <div id="template-5">
+            <div class = "speech-bubble-5" style="display: none">Hoodie</div>
+            <img id="template-1" src="assets/img/templates/top5.png" />
+          </div>
+          <div id="template-6">
+            <div class = "speech-bubble-6" style="display: none">Coat</div>
+            <img id="template-1" src="assets/img/templates/top6.png" />
+          </div>
         </div>
         Choose how you want to use this custom design.
       </div>
